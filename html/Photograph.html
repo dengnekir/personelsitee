@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Cloudinary CDN -->
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <!-- anımatıon css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- WOW.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- WOW.js Başlat -->
+    <script>
+      new WOW().init();
+    </script>
+    <!-- font linki -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ikon linki -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- bootstrap css linli -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <!-- js linki -->
+    <script defer src="../javascript/main.js"></script>
+    <!-- Galeri ve Admin Panel için JavaScript -->
+    <script defer src="../javascript/api-service.js"></script>
+    <script defer src="../javascript/gallery.js"></script>
+    <script defer src="../javascript/admin-panel.js"></script>
+    <!-- css linki -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dengnekir</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon.png" sizes="8x8" />
+    
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description" content="İstanbul'un eşsiz manzaraları, sokak fotoğrafçılığı ve şehir yaşamından kareler. Profesyonel fotoğraf koleksiyonu." />
+    <meta name="author" content="Ferhat Uslu" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="fotoğrafçılık, İstanbul fotoğrafları, manzara fotoğrafları, sokak fotoğrafçılığı, şehir fotoğrafları" />
+    
+    <!-- Open Graph Meta Etiketleri -->
+    <meta property="og:title" content="İstanbul Fotoğrafları - Dengnekir" />
+    <meta property="og:description" content="İstanbul'un tarihi ve modern yüzünü yansıtan profesyonel fotoğraf koleksiyonu." />
+    <meta property="og:image" content="../img/Photograph/main2-2.jpg" />
+    <meta property="og:url" content="https://dengnekir.github.io/photograph" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Meta Etiketleri -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="İstanbul Fotoğrafları" />
+    <meta name="twitter:description" content="Şehrin ruhunu yansıtan profesyonel fotoğraf koleksiyonu" />
+    <meta name="twitter:image" content="../img/Photograph/main2-2.jpg" />
+    
+    <style>
+      /* Modern Header Stilleri */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        padding: 0;
+        margin: 15px 20px;
+      }
+      
+      .navbar:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .modern-nav {
+        padding: 15px;
+      }
+      
+      .modern-container {
+        padding: 0 20px;
+      }
+      
+      .nav-logo {
+        height: 4.5rem;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .nav-logo:hover {
+        transform: rotate(5deg) scale(1.1);
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+      }
+      
+      .modern-menu {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .modern-link {
+        position: relative;
+        padding: 12px 20px;
+        border-radius: 10px;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        z-index: 1;
+        font-weight: 500;
+        color: #333 !important;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .modern-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(to top, rgba(153, 193, 185, 0.2), transparent);
+        transition: all 0.4s ease;
+        z-index: -1;
+        border-radius: 10px;
+      }
+      
+      .modern-link:hover {
+        color: #175a2e !important;
+        transform: translateY(-5px);
+        font-weight: 600 !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      .modern-link:hover::before {
+        height: 100%;
+      }
+      
+      .modern-link.active {
+        color: #175a2e !important;
+        font-weight: 700 !important;
+        background-color: rgba(153, 193, 185, 0.1);
+      }
+      
+      .modern-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 40%;
+        height: 3px;
+        background: linear-gradient(90deg, #175a2e, #99c1b9);
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+      
+      .nav-icon {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      
+      .modern-link:hover .nav-icon {
+        transform: scale(1.2);
+        color: #175a2e;
+      }
+      
+      @media (max-width: 768px) {
+        .modern-menu {
+          gap: 5px;
+        }
+        
+        .modern-link {
+          padding: 8px;
+          font-size: 0.8rem !important;
+        }
+        
+        .modern-link .nav-icon {
+          margin-right: 2px;
+          font-size: 0.9rem;
+        }
+        
+        .nav-logo {
+          height: 3rem;
+        }
+      }
+
+      /* Tam ekran düzenlemesi */
+      body, html {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #f8f9fa;
+      }
+
+      /* YENİ: Ana container stilleri */
+      .container-fluid.gallery-container {
+        max-width: 100%;
+        padding: 0 15px;
+      }
+
+      /* Galeri filtre sistemi */
+      .gallery-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        padding: 15px;
+      }
+
+      .filter-btn {
+        padding: 8px 20px;
+        background: #fff;
+        border: none;
+        border-radius: 25px;
+        color: #333;
+        font-weight: 500;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .filter-btn:hover, .filter-btn.active {
+        background: #175a2e;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      /* Galeri grid sistemi - yeni responsive tasarım */
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      /* Fotoğraf kartları */
+      .photo-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        cursor: pointer;
+        background-color: #fff;
+        transition: all 0.4s ease;
+        width: 100%;
+      }
+
+      .photo-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      }
+
+      /* Farklı boyutlardaki resimler için grid span sınıfları */
+      .photo-item:nth-child(8n+1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .photo-item:nth-child(6n+3) {
+        grid-column: span 2;
+      }
+
+      .photo-item:nth-child(9n+5) {
+        grid-row: span 2;
+      }
+
+      /* Fotoğraf oranı */
+      .photo-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding-top: 100%; /* Varsayılan kare */
+      }
+
+      .photo-item:nth-child(8n+1) .photo-container {
+        padding-top: 100%; /* Büyük kare */
+      }
+
+      .photo-item:nth-child(6n+3) .photo-container {
+        padding-top: 70%; /* Yatay dikdörtgen */
+      }
+
+      .photo-item:nth-child(9n+5) .photo-container {
+        padding-top: 150%; /* Dikey dikdörtgen */
+      }
+
+      .photo-container img,
+      .photo-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+      }
+
+      .photo-item:hover .photo-container img,
+      .photo-item:hover .photo-container video {
+        transform: scale(1.1);
+      }
+
+      /* Fotoğraf bilgileri (hover efekti) */
+      .photo-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white !important;
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+      }
+
+      .photo-item:hover .photo-info {
+        transform: translateY(0);
+      }
+
+      .photo-info h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.2rem;
+        color: white !important;
+      }
+
+      .photo-info p {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        color: white !important;
+      }
+
+      .photo-category {
+        display: inline-block;
+        padding: 3px 10px;
+        background: #175a2e;
+        color: white !important;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        margin-top: 8px;
+      }
+
+      /* Lightbox (tam boy görüntüleme) */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .lightbox.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .lightbox-content img,
+      .lightbox-content video {
+        max-width: 100%;
+        max-height: 90vh;
+        display: block;
+        border: 5px solid #fff;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 10000;
+      }
+
+      .lightbox-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white !important;
+        padding: 15px;
+      }
+
+      .lightbox-info h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.2rem;
+        color: white !important;
+      }
+
+      .lightbox-info p {
+        margin: 5px 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        color: white !important;
+      }
+
+      .lightbox-info .photo-category {
+        display: inline-block;
+        padding: 3px 10px;
+        background: #175a2e;
+        color: white !important;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        margin-top: 8px;
+      }
+
+      /* Video kontrolleri */
+      video::-webkit-media-controls {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      video:hover::-webkit-media-controls {
+        opacity: 1;
+      }
+
+      /* Admin panel İyileştirmeleri */
+      .admin-panel {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+      }
+
+      /* Kategori seçici */
+      .category-selector {
+        margin-top: 15px;
+      }
+
+      .category-selector label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .category-selector select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      
+      /* Admin Login Modal Stilleri */
+      #admin-login-modal .modal-header {
+        background: linear-gradient(135deg, #175a2e, #99c1b9);
+      }
+      
+      #admin-login-modal .modal-content {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      }
+      
+      #admin-login-modal .btn-primary {
+        background: linear-gradient(135deg, #175a2e, #99c1b9);
+        border: none;
+      }
+      
+      #admin-login-modal .btn-primary:hover {
+        background: linear-gradient(135deg, #0d3d1e, #7da59f);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      /* Responsive ayarlamalar */
+      @media (max-width: 1400px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        }
+      }
+
+      @media (max-width: 992px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+          grid-gap: 8px;
+        }
+        
+        .photo-info h3 {
+          font-size: 1rem;
+        }
+        
+        .photo-info p {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+          grid-gap: 6px;
+          padding: 6px;
+        }
+        
+        .photo-item {
+          border-radius: 6px;
+        }
+      }
+
+      /* Diğer stil özellikleri */
+      .fixed, .fixed2 {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        margin: 50px 0;
+      }
+
+      .fixed {
+        background-image: url('../img/Photograph/main2-2.jpg');
+      }
+
+      .fixed2 {
+        background-image: url('../img/Photograph/main3-9.jpg');
+      }
+
+      .content-overlay {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 80%;
+      }
+
+      /* Yükleme alanı */
+      .upload-section {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 30px 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+
+      .upload-btn {
+        background: linear-gradient(135deg, #175a2e, #99c1b9);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .upload-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+
+      footer {
+        position: relative;
+        overflow: hidden;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        background-color: #1a1a1a;
+        margin-top: 50px;
+      }
+      
+      footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #175a2e, #99c1b9, #175a2e);
+      }
+      
+      footer a {
+        transition: all 0.4s ease;
+        display: inline-block;
+      }
+      
+      footer a:hover {
+        transform: translateY(-8px);
+      }
+      
+      footer .fa-lg {
+        transition: all 0.4s ease;
+      }
+      
+      footer a:hover .fa-lg {
+        transform: scale(1.3);
+        text-shadow: 0 0 15px rgba(255,255,255,0.5);
+      }
+    </style>
+  </head>
+  <body class="fotograf">
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light modern-nav">
+        <div class="container modern-container">
+          <a href="../blogs.html" class="navbar-brand a-img">
+            <img src="../img/favicon2.png" alt="logo" class="nav-logo" />
+          </a>
+          
+          <div class="navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto modern-menu">
+              <li class="nav-item">
+                <a href="../blogs.html" class="nav-link fs-6 modern-link">
+                  <i class="fas fa-home nav-icon"></i>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link active fs-6 modern-link">
+                  <i class="fas fa-camera nav-icon"></i>
+                  <span>Fotoğrafçılık</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> 
+    </header>
+    
+    <!-- Cloudinary ile Yüklenen İçerikler -->
+    <div class="container-fluid gallery-container py-0" id="cloudinary-content">
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h2 class="display-5 fw-bold wow animate__fadeInUp" data-wow-duration="1s">Fotoğraf Galerisi</h2>
+          <p class="lead wow animate__fadeInUp" data-wow-delay="0.3s">İstanbul'un farklı açılarını keşfedin</p>
+          
+          <!-- API Durum Göstergesi -->
+          <div id="apiStatus" class="d-inline-block ms-3 px-3 py-1 rounded-pill" style="background-color: #f8f9fa;">
+            <span id="statusText">Galeri Yükleniyor...</span>
+            <span id="statusIcon" class="ms-2">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+        </div>
+      </div>
+        
+        <!-- Galeri Yükleniyor Göstergesi -->
+        <div id="loadingGallery" class="col-12 text-center my-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Yükleniyor...</span>
+          </div>
+          <p class="mt-2">Görüntüler Yükleniyor...</p>
+        </div>
+        
+        <!-- Filtre Butonları -->
+        <div class="gallery-filters" id="gallery-filters">
+          <!-- Filtre butonları JavaScript ile doldurulacak -->
+        </div>
+      </div>
+      
+      <!-- Fotoğraf Galerisi -->
+      <div class="photo-gallery" id="photo-gallery">
+        <!-- Fotoğraflar JavaScript ile doldurulacak -->
+      </div>
+    </div>
+      <!-- Footer Bölümü -->
+      <footer class="bg-dark text-light py-5 lead"> 
+        <div class="container">
+          <div class="row">
+        
+        
+          <!-- Alt Kısım -->
+          <div class="row mt-4 text-center" id="alt-kisim-yonlendirme">
+            <div class="col-12">
+              <p class="medium text-light my-3">&copy; 2025 Dengnekir, Tüm Haklar Saklıdır </p>
+              <a target="_blank" href="mailto: usluferhat98@gmail.com" class="text-light mx-2"><i class="fas fa-envelope fa-lg"></i></a>
+              <a target="_blank" href="https://github.com/dengnekir" class="text-light mx-2"><i class="fab fa-github fa-lg"></i></a>
+              <a target="_blank" href="https://www.instagram.com/dengnekir_/?__pwa=1#" class="text-light mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+              <a target="_blank" href="https://www.linkedin.com/in/ferhat-uslu/" class="text-light mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+              <a target="_blank" href="https://www.youtube.com/@mavistanbull" class="text-light mx-2"><i class="fab fa-youtube fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </body>
+
+</html>

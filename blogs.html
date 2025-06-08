@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Etiketleri -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dengnekir</title>
+    <meta name="description" content="Dengnekir - Yazılım, Fotoğrafçılık ve Teknoloji Blogu. Web tasarım, mobil uygulama geliştirme, yapay zeka ve fotoğrafçılık üzerine içerikler." />
+    <meta name="author" content="Ferhat Uslu" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Sosyal Medya Meta Etiketleri -->
+    <meta property="og:title" content="Dengnekir - Yazılım ve Fotoğrafçılık Blogu" />
+    <meta property="og:description" content="Web tasarım, mobil uygulama geliştirme, yapay zeka ve fotoğrafçılık üzerine özgün içerikler." />
+    <meta property="og:image" content="img/favicon2.png" />
+    <meta property="og:url" content="https://dengnekir.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dengnekir" />
+    <meta name="twitter:description" content="Yazılım ve Fotoğrafçılık Blogu" />
+    <meta name="twitter:image" content="img/favicon2.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="8x8" />
+
+    <!-- CSS Bağlantıları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+
+    <!-- JavaScript Bağlantıları -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script defer src="javascript/main.js"></script>
+
+    <!-- WOW.js Başlat -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new WOW().init();
+      });
+    </script>
+
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9602891142225263"
+     crossorigin="anonymous"></script>
+
+    <style>
+      .cv-link {
+        transition: all 0.3s ease;
+      }
+
+      .cv-link:hover {
+        color: #333 !important;
+        font-weight: 700;
+      }
+
+      /* Modern Header Stilleri */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        padding: 0;
+        margin: 15px 20px;
+      }
+      
+      .navbar:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+      }
+      
+      .modern-nav {
+        padding: 15px;
+      }
+      
+      .modern-container {
+        padding: 0 20px;
+      }
+      
+      .nav-logo {
+        height: 4.5rem;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .nav-logo:hover {
+        transform: rotate(5deg) scale(1.1);
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+      }
+      
+      .modern-menu {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .modern-link {
+        position: relative;
+        padding: 12px 20px;
+        border-radius: 10px;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        z-index: 1;
+        font-weight: 500;
+        color: #333 !important;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .modern-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(to top, rgba(153, 193, 185, 0.2), transparent);
+        transition: all 0.4s ease;
+        z-index: -1;
+        border-radius: 10px;
+      }
+      
+      .modern-link:hover {
+        color: #175a2e !important;
+        transform: translateY(-5px);
+        font-weight: 600 !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      .modern-link:hover::before {
+        height: 100%;
+      }
+      
+      .modern-link.active {
+        color: #175a2e !important;
+        font-weight: 700 !important;
+        background-color: rgba(153, 193, 185, 0.1);
+      }
+      
+      .modern-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 40%;
+        height: 3px;
+        background: linear-gradient(90deg, #175a2e, #99c1b9);
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+      
+      .nav-icon {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      
+      .modern-link:hover .nav-icon {
+        transform: scale(1.2);
+        color: #175a2e;
+      }
+      
+      @media (max-width: 768px) {
+        .modern-menu {
+          gap: 5px;
+        }
+        
+        .modern-link {
+          padding: 8px;
+          font-size: 0.8rem !important;
+        }
+        
+        .modern-link .nav-icon {
+          margin-right: 2px;
+          font-size: 0.9rem;
+        }
+        
+        .nav-logo {
+          height: 3rem;
+        }
+      }
+
+      .nav-link.active {
+        color: #333 !important;
+        border-color: #333 !important;
+      }
+
+      .btn-outline-secondary {
+        border-color: #333;
+        color: #333;
+      }
+
+      .btn-outline-secondary:hover {
+        background-color: #333;
+        border-color: #333;
+        color: white;
+      }
+
+      .header-blogs .nav-link {
+        color: #444;
+        transition: all 0.3s ease;
+      }
+
+      .header-blogs .nav-link:hover {
+        color: #333;
+        font-weight: 500;
+      }
+
+      /* Ana içerik stilleri */
+      .blogss {
+        color: #333;
+      }
+
+      .blogss h1, .blogss h2, .blogss h3, .blogss h4, .blogss h5 {
+        color: #222;
+      }
+
+      .blogss .text-muted {
+        color: #666 !important;
+      }
+
+      .blogss .btn-primary {
+        background-color: #2F4F4F;
+        border-color: #2F4F4F;
+      }
+
+      .blogss .btn-primary:hover {
+        background-color: #3D6B6B;
+        border-color: #3D6B6B;
+      }
+
+      .blogss .btn-outline-dark {
+        color: #2F4F4F;
+        border-color: #2F4F4F;
+      }
+
+      .blogss .btn-outline-dark:hover {
+        background-color: #2F4F4F;
+        color: white;
+      }
+
+      .blogss .progress-bar {
+        background-color: #175a2e;
+      }
+
+      .blogss .card {
+        border-color: rgba(47, 79, 79, 0.1);
+      }
+
+      .blogss .card:hover {
+        border-color: rgba(47, 79, 79, 0.3);
+      }
+
+      /* Footer renkleri değişmeyecek */
+      footer {
+        background-color: #212529;
+      }
+
+      footer a, footer p {
+        color: #fff !important;
+      }
+
+      footer a:hover {
+        color: #e9ecef !important;
+      }
+
+      .btn-outline-primary {
+        color: #99c1b9;
+        border-color: #99c1b9;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: #99c1b9;
+        border-color: #99c1b9;
+        color: white;
+      }
+
+      /* Progress bar animasyonunu scroll'a bağlama */
+      .progress-bar {
+        width: 0;
+        transition: width 1.5s ease-in-out;
+        background: linear-gradient(90deg, #175a2e, #99c1b9) !important;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .progress-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: progressShine 2s infinite linear;
+      }
+
+      @keyframes progressShine {
+        100% {
+          left: 100%;
+        }
+      }
+
+      .progress-bar.animate {
+        opacity: 1;
+      }
+      
+      /* Yeni eklenen stiller */
+      /* Contact linkleri için stil */
+      .contact-link {
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+        display: block;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transform: translateX(0);
+      }
+      
+      .contact-link:hover {
+        background: linear-gradient(90deg, #f0f0f0, transparent);
+        transform: translateX(10px);
+        color: #175a2e !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+      
+      .contact-icon {
+        font-size: 22px;
+        color: #175a2e;
+        transition: all 0.4s ease;
+      }
+      
+      .contact-link:hover .contact-icon {
+        transform: scale(1.2);
+        color: #99c1b9;
+        text-shadow: 0 0 10px rgba(153, 193, 185, 0.5);
+      }
+      
+      .contact-text {
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .contact-link:hover .contact-text {
+        font-weight: 700;
+        color: #175a2e;
+        letter-spacing: 0.5px;
+      }
+      
+      /* Timeline İş Deneyimi Düzenlemesi */
+      .timeline::before {
+        background: linear-gradient(to bottom, #175a2e, #99c1b9);
+      }
+      
+      .timeline-item::before {
+        background: linear-gradient(45deg, #175a2e, #99c1b9);
+        box-shadow: 0 0 15px rgba(153, 193, 185, 0.6);
+      }
+      
+      .timeline-item:hover::before {
+        transform: translateX(-50%) scale(1.3);
+        box-shadow: 0 0 25px rgba(153, 193, 185, 0.8);
+      }
+      
+      .timeline-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+      }
+      
+      .timeline-item:hover .timeline-content {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+      }
+      
+      .timeline-item.left .timeline-content {
+        margin-right: 30px;
+      }
+      
+      .timeline-item.right .timeline-content {
+        margin-left: 30px;
+      }
+      
+      /* Footer hover efektleri */
+      footer .fa-lg {
+        transition: all 0.4s ease;
+      }
+      
+      footer a:hover .fa-lg {
+        transform: translateY(-5px) scale(1.2);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      }
+      
+      /* Header alt çizgisi */
+      .header-blog {
+        position: relative;
+        border-bottom: none !important;
+      }
+      
+      /* Footer için ek stiller */
+      footer {
+        position: relative;
+        overflow: hidden;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #175a2e, #99c1b9, #175a2e);
+      }
+      
+      /* Karşılama ekranı (Hero bölümü) iyileştirmeleri */
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.8));
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        margin: 20px 0;
+        z-index: 1;
+      }
+      
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(153, 193, 185, 0.1), transparent);
+        z-index: -1;
+        animation: rotate 30s linear infinite;
+      }
+      
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      .hero-section .img-fluid {
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transform-origin: center;
+      }
+      
+      .hero-section:hover .img-fluid {
+        transform: scale(1.03);
+        filter: contrast(1.1) brightness(1.05);
+      }
+      
+      .hero-section .overlay {
+        transition: all 0.4s ease;
+      }
+      
+      .hero-section:hover .overlay {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+      }
+      
+      /* Profil resmi hover efekti */
+      .profile-section .card {
+        overflow: hidden;
+      }
+      
+      .profile-section .card img {
+        transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform-origin: bottom;
+      }
+      
+      .profile-section .card:hover img {
+        transform: scale(1.05) translateY(-10px);
+        filter: saturate(1.1);
+      }
+      
+      /* Yetkinlik kartları hover efekti iyileştirmesi */
+      .skill-item {
+        position: relative;
+        padding: 5px 0;
+        z-index: 1;
+      }
+      
+      .skill-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(153, 193, 185, 0.1), transparent);
+        transition: all 0.4s ease;
+        z-index: -1;
+        border-radius: 8px;
+      }
+      
+      .skill-item:hover::before {
+        width: 100%;
+      }
+      
+      .skill-item:hover h5 {
+        transform: translateX(5px);
+        color: #175a2e;
+      }
+      
+      /* Timeline elementi çeşitlendirme */
+      .timeline-item:nth-child(odd)::before {
+        background: linear-gradient(135deg, #175a2e, #99c1b9);
+      }
+      
+      .timeline-item:nth-child(even)::before {
+        background: linear-gradient(45deg, #99c1b9, #175a2e);
+      }
+      
+      .timeline-item.left:hover .timeline-content {
+        transform: translateX(10px) translateY(-5px);
+      }
+      
+      .timeline-item.right:hover .timeline-content {
+        transform: translateX(-10px) translateY(-5px);
+      }
+      
+      /* İletişim kartları ve butonlar için iyileştirmeler */
+      .contact-link {
+        border-left: 0 solid transparent;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      
+      .contact-link::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background: linear-gradient(to bottom, transparent, #175a2e, transparent);
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      
+      .contact-link:hover {
+        background: linear-gradient(90deg, rgba(242, 242, 242, 0.8), transparent);
+        transform: translateX(15px);
+        padding-left: 25px;
+      }
+      
+      .contact-link:hover::after {
+        opacity: 1;
+      }
+      
+      /* CV İndir butonu iyileştirmesi */
+      .btn-outline-primary {
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        border-width: 2px;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .btn-outline-primary::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 150%;
+        background: linear-gradient(45deg, #175a2e, #99c1b9);
+        z-index: -1;
+        transform: translate(-50%, -50%) rotate(45deg) scale(0);
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .btn-outline-primary:hover {
+        color: white !important;
+        border-color: transparent;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(153, 193, 185, 0.3);
+      }
+      
+      .btn-outline-primary:hover::before {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+      
+      .btn-outline-primary:hover i {
+        transform: translateX(-5px);
+      }
+      
+      .btn-outline-primary i {
+        transition: all 0.3s ease;
+      }
+      
+      /* Ana butonlar için iyileştirmeler */
+      .btn-primary, .btn-outline-dark {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .btn-primary::after, .btn-outline-dark::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -100%;
+        width: 70px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(30deg);
+        transition: all 0.5s ease;
+        z-index: -1;
+      }
+      
+      .btn-primary:hover, .btn-outline-dark:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .btn-primary:hover::after, .btn-outline-dark:hover::after {
+        left: 120%;
+      }
+      
+      /* Ana sayfa quote stili */
+   /* ANASAYFA RESİM 1 */
+  .ana-sayfa {
+    background-image: url('img/homepage/backround.jpeg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    opacity: 85%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .ana-sayfa .content-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    max-width: 800px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+      
+      /* Projeler bölümü CSS */
+      .swiper-slide {
+        height: auto;
+        padding: 10px;
+        transition: all 0.5s ease;
+      }
+      
+      .swiper-slide:hover {
+        transform: translateY(-10px);
+      }
+      
+      .card {
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: none;
+        overflow: hidden;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .card::before {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(23, 90, 46, 0.1), transparent);
+        transition: all 0.5s ease;
+        z-index: -1;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      }
+      
+      .card:hover::before {
+        top: 0;
+        opacity: 0.3;
+      }
+      
+      .card-img-top {
+        transition: all 0.4s ease;
+        transform-origin: center;
+      }
+      
+      .card:hover .card-img-top {
+        transform: scale(1.03);
+      }
+      
+      .card-title {
+        position: relative;
+        display: inline-block;
+        transition: all 0.3s ease;
+        color: #333;
+      }
+      
+      .card-title::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #175a2e, #99c1b9);
+        transition: all 0.3s ease;
+      }
+      
+      .card:hover .card-title {
+        color: #175a2e;
+      }
+      
+      .card:hover .card-title::after {
+        width: 100%;
+      }
+      
+      .btn-outline-dark {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        border: 2px solid #333;
+        color: #333;
+      }
+      
+      .btn-outline-dark::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #175a2e, #444);
+        transition: all 0.4s ease;
+        z-index: -1;
+      }
+      
+      .btn-outline-dark:hover {
+        color: white;
+        border-color: #175a2e;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(23, 90, 46, 0.2);
+      }
+      
+      .btn-outline-dark:hover::before {
+        left: 0;
+      }
+      
+      /* Swiper Pagination Renkleri */
+      .swiper-pagination-bullet {
+        background-color: #444;
+        opacity: 0.5;
+      }
+      
+      .swiper-pagination-bullet-active {
+        background-color: #175a2e;
+        opacity: 1;
+      }
+      
+      /* index.html'deki projelerim bölümünden eklenen stiller */
+      .proje-card .card {
+        height: 100%;
+        transition: all 0.4s ease;
+      }
+      
+      .proje-card .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+      
+      .proje-card .btn-outline-dark {
+        transition: all 0.3s ease;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .proje-card .btn-outline-dark::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.5s ease;
+        z-index: -1;
+      }
+      
+      .proje-card .btn-outline-dark:hover::before {
+        left: 100%;
+      }
+      
+      /* Github ikon rengi */
+      .github-link {
+        transition: all 0.5s ease;
+      }
+      
+      .github-link:hover {
+        transform: rotate(360deg) scale(1.2);
+        color: #99c1b9 !important;
+      }
+      
+      .proje-card .github-link {
+        transition: all 0.5s ease;
+        color: #175a2e;
+      }
+      
+      .proje-card .github-link:hover {
+        transform: rotate(360deg) scale(1.2);
+        color: #99c1b9 !important;
+      }
+      
+      .fa-github {
+        color: #175a2e;
+      }
+    </style>
+  </head>
+  <body class="blogss">
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-md navbar-light modern-nav">
+        <div class="container modern-container">
+          <a href="blogs.html" class="navbar-brand a-img">
+            <img src="img/favicon2.png" alt="logo" class="nav-logo" />
+          </a>
+          
+          <div class="navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto modern-menu">
+              <li class="nav-item">
+                <a href="blogs.html" class="nav-link fs-6 modern-link active">
+                  <i class="fas fa-home nav-icon"></i>
+                  <span>Home</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Google AdSense Reklam Alanı -->
+    <div class="container-fluid reklam-alani text-center py-2" style="background-color: rgba(255,255,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.1);">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9602891142225263"
+           data-ad-slot="REKLAM_SLOT_NUMARANIZ"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main>
+      <!-- Hero Bölümü -->
+      <section class="hero-section py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Sol Kısım (Resim) -->
+            <div class="col-lg-6 mb-4 mb-lg-0 wow animate__fadeInLeft" data-wow-duration="1s">
+              <div class="position-relative overflow-hidden rounded-3 shadow-lg">
+                <img src="img/blogs/blogs.png" alt="Dengnekir Blog" class="img-fluid w-100">
+                <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-10"></div>
+              </div>
+            </div>
+
+            <!-- Sağ Kısım (Yazı) -->
+            <div class="col-lg-6 text-center text-lg-start wow animate__fadeInRight" data-wow-duration="1s">
+              <h1 class="display-3 fw-bold mb-4">Dengnekir</h1>
+              <p class="lead mb-4">Yazılım, Fotoğrafçılık ve Teknoloji üzerine özgün içerikler.</p>
+              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                <a href="https://www.youtube.com/@mavistanbul" target="_blank" class="btn btn-primary btn-lg">
+                  <i class="fab fa-youtube me-2"></i>Youtube
+                </a>
+                <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark btn-lg">
+                  <i class="fab fa-github me-2"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profil Bölümü -->
+      <section class="profile-section py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <!-- Sol Profil Bilgileri -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="card border-0 shadow-sm h-100 wow animate__fadeInUp" data-wow-duration="1s">
+                <div class="card-body p-4">
+                  <h2 class="card-title display-4 mb-4">Ferhat Uslu</h2>
+                  <h3 class="h4 text-muted mb-4">Yazılım Mühendisliği</h3>
+                  
+                  <div class="social-links mb-4">
+                    <div class="contact-item mb-3">
+                      <a href="https://www.instagram.com/dengnekir_/" target="_blank" class="contact-link d-flex align-items-center">
+                        <i class="fab fa-instagram contact-icon"></i>
+                        <span class="ms-3 contact-text">@dengnekir_</span>
+                      </a>
+                    </div>
+                    <div class="contact-item mb-3">
+                      <a href="mailto:usluferhat98@gmail.com" class="contact-link d-flex align-items-center">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="ms-3 contact-text">usluferhat98@gmail.com</span>
+                      </a>
+                    </div>
+                    <div class="contact-item mb-3">
+                      <a href="#" class="contact-link d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="ms-3 contact-text">Küçükçekmece, İstanbul</span>
+                      </a>
+                    </div>
+                    <div class="contact-item mb-3">
+                      <a href="#" class="contact-link d-flex align-items-center">
+                        <i class="fas fa-graduation-cap contact-icon"></i>
+                        <span class="ms-3 contact-text">İstanbul Topkapı Üniversitesi<br>Yazılım Mühendisliği (2021-2025)</span>
+                      </a>
+                    </div>
+                       <div class="contact-item mb-3">
+                      <a href="https://www.youtube.com/@mavistanbul" class="contact-link d-flex align-items-center">
+                        <i class="fab fa-youtube contact-icon"></i>
+                        <span class="ms-3 contact-text">Mavi İstanbul<br>Youtuber</span>
+                      </a>
+                    </div>
+                       <div class="contact-item mb-3">
+                      <a href="https://www.linkedin.com/in/ferhat-uslu/" class="contact-link d-flex align-items-center">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <span class="ms-3 contact-text">Linkedin</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <a href="ferhatuslu.pdf" download class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-download me-2"></i>CV'yi İndir
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sağ Profil Resmi -->
+            <div class="col-lg-6 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+              <div class="card border-0 shadow-sm overflow-hidden h-100">
+                <div class="bg-gradient p-4" style="background-color: #849a90">
+                  <img src="img/blogs/blogs2.png" alt="Profil" class="img-fluid rounded-3 shadow">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- anasayfa2  -->
+    <div class="ana-sayfa">
+      <h1  class="content-overlay fw-bold  ">Karanlığın içinden gözyaşı damlalarının parlaması ilkbahar şenayîliğinin solmasına neden oluyordu. <br>
+        -dengnekir
+      </h1>
+  </div>
+      <!-- Projeler Bölümü -->
+      <section class="projects-section py-5 bg-white">
+        <div class="container">
+          <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Projelerim</h2>
+            <p class="lead text-muted">Geliştirdiğim Bazı Projeler</p>
+          </div>
+          
+          <!-- Swiper Container -->
+          <div class="swiper projectSwiper">
+            <div class="swiper-wrapper">
+              
+				                          <!-- Proje 1 -->
+              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="card h-100">
+                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                    <img src="img/homepage/neyesek.jpg" class="card-img-top" alt="Ne Yesek" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Ne Yesek</h5>
+                    <p class="card-text">Ne yesek uygulaması ile  yemek paylaşabilir, mesajlaşabilir, ve takipleşebilirsiniz.</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                      <a href="https://play.google.com/store/apps/details?id=com.dengnekir.onlyfood&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
+
+                
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+				
+              <!-- Proje 2 -->
+              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="card h-100">
+                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                    <img src="img/homepage/meydantantuni.png" class="card-img-top" alt="İşletme Tanıtım Sitesi" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">İşletme Tanıtım Sitesi</h5>
+                    <p class="card-text">HTML - CSS ve Bootstrap kullanılarak hazırlanan küçük bir işletmenin tanıtım sitesi</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                      <a href="https://dengnekir.github.io/Meydan-Tantuni/" target="_blank" class="btn btn-outline-dark">Projeyi Gör</a>
+                      <a href="https://github.com/dengnekir/Meydan-Tantuni" target="_blank" class="github-link">
+                        <i class="fab fa-github fa-2x"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                                           <!-- Proje 3 -->
+              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="card h-100">
+                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                    <img src="img/homepage/neyesek.jpg" class="card-img-top" alt="Şifrelerim" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Şifrelerim</h5>
+                    <p class="card-text">Şifreleri kaybetmeden saklamanın en kolay ve düzenli yolu.</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                      <a href="https://play.google.com/store/apps/details?id=com.dengnekir.onlyfood&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
+
+                
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			               <!-- Proje 4 -->
+              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="card h-100">
+                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                    <img src="img/homepage/digitalgunluk.jpg" class="card-img-top" alt="Dijital Psikoloğum" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Dijital Psikoloğum</h5>
+                    <p class="card-text">Gemini api kullanılarak modlara göre kişiye psikolog , psikiyatrist, motivasyon koçu, gelecek planlamacısı gibi hocalara dönüşüp cevap veren bir yapay zeka asistanı.</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                      <a href="digitalgunluk.apk" download class="btn btn-outline-dark">Uygulamayı İndir</a>
+
+                
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Proje 5 -->
+              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="card h-100">
+                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                    <img src="img/homepage/vistopia.jpg" class="card-img-top" alt="Vistopia" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Vistopia</h5>
+                    <p class="card-text">Flutter ile hazırlanan sosyal medya projem. Reels, resim ve yazı atılabilen, mesaj gönderilebilen kapsamlı bir platform.</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                      <a href="vistopia.apk" download class="btn btn-outline-dark">Uygulamayı İndir</a>
+
+                
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               
+
+              
+              <!-- Proje 6 -->
+              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+                <div class="card h-100">
+                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                    <img src="img/homepage/github.png" class="card-img-top" alt="Github Projelerim" style="width: 100%; height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Github Projelerim</h5>
+                    <p class="card-text">Daha fazla projelerim için GitHub sayfama göz atın</p>
+                    <div class="mt-auto d-flex justify-content-between">
+                      <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark">Projeleri Gör</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          
+          <!-- Swiper için stil ve kod -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              new Swiper(".projectSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+                breakpoints: {
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                  },
+                  1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                  },
+                },
+              });
+            });
+          </script>
+        </div>
+      </section>
+
+      <!-- Yetkinlikler Bölümü -->
+      <section class="skills-section py-5 bg-light">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+                <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Uzmanlık Alanları</h2>
+                <p class="lead text-muted">Yazılım ve Diğer Konularda Bilgi Düzeyim</p>
+              </div>
+
+              <div class="skills-container wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <!-- CAPCUT -->
+                <div class="skill-item mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">CAPCUT</h5>
+                    <span class="fs-6">75%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
+      <!-- Firebase -->
+      <div class="skill-item mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h5 class="mb-0" style="color: #333;">FİREBASE</h5>
+          <span class="fs-6">70%</span>
+        </div>
+        <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+        </div>
+      </div>
+                <!-- CANVA -->
+                <div class="skill-item mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">CANVA</h5>
+                    <span class="fs-6">70%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
+
+                <!-- Flutter -->
+                <div class="skill-item mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">FLUTTER</h5>
+                    <span class="fs-6">80%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
+
+                <!-- HTML -->
+                <div class="skill-item mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">HTML</h5>
+                    <span class="fs-6">90%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
+
+                <!-- CSS -->
+                <div class="skill-item mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">CSS & Bootstrap</h5>
+                    <span class="fs-6">80%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-item">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">JAVASCRIPT</h5>
+                    <span class="fs-6">35%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- İş Deneyimi Bölümü -->
+      <section class="experience-section py-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+                <h2 class="display-4 fw-bold mb-4">İş Deneyimi</h2>
+              </div>
+
+              <div class="timeline clearfix">
+                <!-- Sol -->
+                <div class="timeline-item left">
+                  <div class="timeline-content">
+                    <h5 class="fw-bold text-success">2025 - 2025 </h5>
+                    <h6 class="fw-bold">İntegra Sistem Teknolojileri Ltd. Şti.</h6>
+                    <p class="fst-italic fs-6">Mobil Uygulama Geliştirme</p>
+                    <p class="fs-6">
+                      Mobil Uygulama Geliştirici
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Sağ -->
+                <div class="timeline-item right my-5">
+                  <div class="timeline-content">
+                    <h5 class="fw-bold text-success">2024 -</h5>
+                    <h6 class="fw-bold">Dilruba</h6>
+                    <p class="fst-italic fs-6">Garsonluk</p>
+                    <p class="fs-6">Part Time hizmet sektörü</p>
+                  </div>
+                </div>
+
+                <!-- Sol -->
+                <div class="timeline-item left">
+                  <div class="timeline-content">
+                    <h5 class="fw-bold text-success">2023 - 2024</h5>
+                    <h6 class="fw-bold">Bim A.Ş</h6>
+                    <p class="fst-italic fs-6">Kasiyerlik</p>
+                    <p class="fs-6">Market elemanı ve genel işleyiş</p>
+                  </div>
+                </div>
+
+                <!-- Sağ -->
+                <div class="timeline-item right my-5">
+                  <div class="timeline-content">
+                    <h5 class="fw-bold text-success">2021 - 2023</h5>
+                    <h6 class="fw-bold">İSS & YGT</h6>
+                    <p class="fst-italic fs-6">Temizlik Personeli</p>
+                    <p class="fs-6">Part Time Genel Temizlik</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kullandığım Yazılımlar Bölümü -->
+      <section class="tools-section py-5 bg-light">
+        <div class="container">
+          <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Kullandığım Yazılımlar</h2>
+            <p class="lead text-muted">Geliştirme ve Tasarım Süreçlerimde Kullandığım Araçlar</p>
+          </div>
+
+          <div class="row justify-content-center align-items-center text-center">
+            <!-- ChatGPT -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <a href="https://chat.openai.com/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/chat-gbt.png" class="img-fluid w-50 hover-effect mb-3" alt="ChatGPT">
+                  <h6 class="text-dark fw-bold">ChatGPT</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Claude AI -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+              <a href="https://claude.ai/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/claude.png" class=" img-fluid w-50 hover-effect mb-3" alt="Claude AI">
+                  <h6 class="text-dark fw-bold">Claude AI</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Gemini -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <a href="https://www.google.com/gemini" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/gemini.png" class="img-fluid w-50 hover-effect mb-3" alt="Gemini">
+                  <h6 class="text-dark fw-bold">Gemini</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Gamma -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+              <a href="https://gamma.app/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/gamma.png" class="img-fluid w-50 hover-effect mb-3" alt="Gamma">
+                  <h6 class="text-dark fw-bold">Gamma</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Bing Image Creator -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+              <a href="https://www.bing.com/create" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/bing.png" class="img-fluid w-50 hover-effect mb-3" alt="Bing Image Creator">
+                  <h6 class="text-dark fw-bold">Bing Image Creator</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Cursor IDE -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+              <a href="https://www.cursor.com/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/cursoride.png" class="img-fluid w-50 hover-effect mb-3" alt="Cursor IDE">
+                  <h6 class="text-dark fw-bold">Cursor IDE</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Leonardo.ai -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
+              <a href="https://leonardo.ai/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/leonardo.jpg" class="img-fluid w-50 hover-effect mb-3" alt="Leonardo.ai">
+                  <h6 class="text-dark fw-bold">Leonardo.ai</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- Canva -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
+              <a href="https://www.canva.com/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/canva.png" class="img-fluid w-50 hover-effect mb-3" alt="Canva">
+                  <h6 class="text-dark fw-bold">Canva</h6>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <style>
+            .hover-effect {
+              transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+              filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.05));
+              transform-origin: center;
+            }
+            
+            .hover-effect:hover {
+              transform: translateY(-10px) rotate(5deg) scale(1.1);
+              filter: drop-shadow(0 15px 20px rgba(23, 90, 46, 0.2));
+            }
+            
+            .tool-item {
+              padding: 20px;
+              border-radius: 15px;
+              transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+              position: relative;
+              overflow: hidden;
+              z-index: 1;
+              background-color: white;
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+              border: 1px solid rgba(23, 90, 46, 0.05);
+            }
+            
+            .tool-item::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 100%;
+              background: linear-gradient(90deg, rgba(23, 90, 46, 0.05), transparent);
+              transition: all 0.5s ease;
+              z-index: -1;
+            }
+            
+            .tool-item:hover {
+              transform: translateY(-15px) scale(1.03);
+              box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .tool-item:hover::before {
+              width: 100%;
+            }
+            
+            .tool-item h6 {
+              transition: all 0.3s ease;
+              position: relative;
+              display: inline-block;
+              color: #333;
+            }
+            
+            .tool-item h6::after {
+              content: '';
+              position: absolute;
+              bottom: -3px;
+              left: 50%;
+              width: 0;
+              height: 2px;
+              background: linear-gradient(90deg, #175a2e, #99c1b9);
+              transition: all 0.3s ease;
+              transform: translateX(-50%);
+            }
+            
+            .tool-item:hover h6 {
+              color: #175a2e;
+              font-weight: 700 !important;
+              transform: scale(1.1);
+            }
+            
+            .tool-item:hover h6::after {
+              width: 80%;
+            }
+            
+            @keyframes float {
+              0% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+              100% { transform: translateY(0px); }
+            }
+            
+            .tools-section .col-6:nth-child(even) .hover-effect {
+              animation: float 5s ease-in-out infinite;
+            }
+            
+            .tools-section .col-6:nth-child(odd) .hover-effect {
+              animation: float 6s ease-in-out infinite 1s;
+            }
+          </style>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Bölümü -->
+    <footer class="bg-dark text-light py-5 lead"> 
+      <div class="container">
+        <div class="row">
+      
+       
+        <!-- Alt Kısım -->
+        <div class="row mt-4 text-center" id="alt-kisim-yonlendirme">
+          <div class="col-12">
+            <p class="medium my-3">&copy; 2025 Dengnekir, Tüm Haklar Saklıdır </p>
+            <a target="_blank" href="mailto: usluferhat98@gmail.com" class="text-light mx-2"><i class="fas fa-envelope fa-lg"></i></a>
+            <a target="_blank" href="https://github.com/dengnekir" class="text-light mx-2"><i class="fab fa-github fa-lg"></i></a>
+            <a target="_blank" href="https://www.instagram.com/dengnekir_/?__pwa=1#" class="text-light mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/ferhat-uslu/" class="text-light mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a target="_blank" href="https://www.youtube.com/@mavistanbull" class="text-light mx-2"><i class="fab fa-youtube fa-lg"></i></a>
+            <a href="../html/privacy.html" class="text-light mx-2"><i class="fas fa-shield-alt fa-lg"></i> Gizlilik Politikası</a>
+          </div>
+        </div>
+      </div>
+          </footer>
+
+    <script>
+      // Progress bar scroll animasyonu
+      document.addEventListener('DOMContentLoaded', function() {
+        // Progress Bar Animasyonu
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const progressBar = entry.target;
+              const targetWidth = progressBar.getAttribute('aria-valuenow') + '%';
+              
+              // Animasyonu başlat
+              setTimeout(() => {
+                progressBar.style.width = targetWidth;
+              }, 100);
+              
+              observer.unobserve(progressBar); // Animasyon tamamlandıktan sonra gözlemeyi durdur
+            }
+          });
+        }, {
+          threshold: 0.15, // Elementin %15'i görünür olduğunda tetiklenir
+          rootMargin: '0px 0px -10% 0px' // Sayfanın alt kısmına daha yakın olmasını gerektirir
+        });
+
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+          bar.style.width = '0'; // Başlangıçta 0
+          bar.style.transition = 'width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1)'; // Daha akıcı bir transition
+          observer.observe(bar);
+        });
+        
+        // Timeline animasyonları
+        const animateItems = document.querySelectorAll('.timeline-item');
+        const animateObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate__animated');
+              
+              if (entry.target.classList.contains('left')) {
+                entry.target.classList.add('animate__fadeInLeft');
+              } else {
+                entry.target.classList.add('animate__fadeInRight');
+              }
+              
+              animateObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.2,
+          rootMargin: '-50px'
+        });
+        
+        animateItems.forEach(item => {
+          animateObserver.observe(item);
+        });
+        
+        // Contact item hover efektleri
+        const contactLinks = document.querySelectorAll('.contact-link');
+        contactLinks.forEach(link => {
+          link.addEventListener('mouseenter', function() {
+            this.classList.add('animate__animated', 'animate__pulse');
+          });
+          
+          link.addEventListener('mouseleave', function() {
+            setTimeout(() => {
+              this.classList.remove('animate__animated', 'animate__pulse');
+            }, 500);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
