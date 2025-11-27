@@ -16,8 +16,6 @@ header {
 @media (max-width: 578px) {
   header {
     position: relative;
-    display: flex !important;
-    justify-content: center !important;
   }
 
   .navbar {
@@ -25,34 +23,37 @@ header {
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 10px 0 !important;
+    padding: 8px 0 !important;
     margin: 0 !important;
-    width: 100% !important;
+    width: auto !important;
+    gap: 8px !important;
   }
 
   .modern-container {
-    width: auto !important;
-    padding: 0 10px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    max-width: 100% !important;
+    width: auto !important;
+    padding: 0 !important;
+    gap: 8px !important;
   }
 
   .navbar-collapse {
     display: flex !important;
     flex-basis: auto !important;
     width: auto !important;
-    flex-shrink: 1 !important;
   }
 
   .a-img {
-    margin: 0 10px 0 0 !important;
+    margin: 0 !important;
     width: auto !important;
     display: flex !important;
-    justify-content: center !important;
     flex: 0 0 auto !important;
     flex-shrink: 0 !important;
+  }
+
+  .nav-logo {
+    height: 3rem !important;
   }
 
   .navbar-nav {
@@ -62,7 +63,7 @@ header {
     align-items: center !important;
     width: auto !important;
     height: auto !important;
-    gap: 8px !important;
+    gap: 5px !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -76,16 +77,18 @@ header {
   }
 
   .modern-link {
-    padding: 8px 10px !important;
-    font-size: 0.9rem !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .nav-icon {
+    font-size: 1rem !important;
   }
 }
 
 @media (min-width: 579px) and (max-width: 768px) {
   header {
     position: relative;
-    display: flex !important;
-    justify-content: center !important;
   }
 
   .navbar {
@@ -93,34 +96,37 @@ header {
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 10px 0 !important;
+    padding: 8px 0 !important;
     margin: 0 !important;
-    width: 100% !important;
+    width: auto !important;
+    gap: 8px !important;
   }
 
   .modern-container {
-    width: auto !important;
-    padding: 0 10px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    max-width: 100% !important;
+    width: auto !important;
+    padding: 0 !important;
+    gap: 8px !important;
   }
 
   .navbar-collapse {
     display: flex !important;
     flex-basis: auto !important;
     width: auto !important;
-    flex-shrink: 1 !important;
   }
 
   .a-img {
-    margin: 0 10px 0 0 !important;
+    margin: 0 !important;
     width: auto !important;
     display: flex !important;
-    justify-content: center !important;
     flex: 0 0 auto !important;
     flex-shrink: 0 !important;
+  }
+
+  .nav-logo {
+    height: 3rem !important;
   }
 
   .navbar-nav {
@@ -130,7 +136,7 @@ header {
     align-items: center !important;
     width: auto !important;
     height: auto !important;
-    gap: 8px !important;
+    gap: 5px !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -144,7 +150,11 @@ header {
   }
 
   .modern-link {
-    padding: 8px 10px !important;
-    font-size: 0.9rem !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .nav-icon {
+    font-size: 1rem !important;
   }
 }
