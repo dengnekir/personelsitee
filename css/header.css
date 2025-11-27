@@ -11,22 +11,6 @@ header {
       border-bottom: 1px solid #183d3d;
     }
   }
-  /* ! form işlemleri kaldırıldı */
-  /* Nav VE BLOG ARASI ÇİZGİ */
-  .header-blog {
-    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.1),
-      0px -5px 5px -5px rgba(0, 0, 0, 0.1);
-    /* BLOG YAZI RENGİ ve hover işlemleri*/
-    .header-blogs {
-      a {
-        color: gray;
-        &:hover {
-          color: gray;
-          border-bottom: 1px solid #183d3d;
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 578px) {
