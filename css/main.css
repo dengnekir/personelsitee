@@ -97,43 +97,109 @@ body {
   }
 }
 
-/* ! index ana sayfa */
-.index-ana {
-  perspective: 1000px;
+/* ! index ana sayfa — kullanılmayan sınıflar kaldırıldı */
 
-  /* sirket logoları */
-  .section-sirket-logo {
-    .hover-effect {
+.projeler {
+  .proje-card {
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.2s);
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    height: 450px;
+
+    .card {
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform-style: preserve-3d;
-      perspective: 1000px;
+      overflow: hidden;
 
-      &:hover {
-        transform: translate3d(0, -15px, 50px) rotateY(10deg);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
-          0 15px 20px rgba(0, 0, 0, 0.1);
-        filter: brightness(1.2) contrast(1.1);
-      }
-    }
-  }
-
-  .projeler {
-    .proje-card {
-      opacity: 0;
-      animation: fadeInUp 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-      animation-delay: calc(var(--card-index, 0) * 0.2s);
-      transform-style: preserve-3d;
-      perspective: 2000px;
-      height: 450px;
-
-      .card {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .card-img-top {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+        transform-origin: center;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        &:hover {
+          transform: scale3d(1.05, 1.05, 1.05);
+        }
+      }
+
+      .card-body {
+        padding: 2rem;
+        transform-style: preserve-3d;
+
+        .card-title {
+          font-size: 2.2rem;
+          font-weight: 600;
+          transform: translateZ(20px);
+          transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+          &:hover {
+            transform: translateZ(30px) scale(1.05);
+            color: var(--color-teal);
+          }
+        }
+
+        .card-text {
+          font-size: 1.4rem;
+          color: var(--color-text-secondary);
+          transform: translateZ(10px);
+        }
+      }
+
+      .github-link {
+        color: #333;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform-style: preserve-3d;
+
+        i {
+          font-size: 2.2rem;
+          transform: translateZ(20px);
+        }
+
+        &:hover {
+          color: var(--color-teal-dark);
+          transform: translateZ(30px) rotate(360deg) scale(1.2);
+        }
+      }
+
+      .btn-outline-dark {
+        font-size: 1.3rem;
+        font-weight: 500;
+        padding: 0.8rem 2rem;
+        border-radius: 30px;
+        background: linear-gradient(
+          45deg,
+          var(--color-teal),
+          var(--color-teal-dark)
+        );
         border: none;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        color: white;
+        transform: translateZ(20px);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
         overflow: hidden;
 
         &::before {
@@ -152,107 +218,10 @@ body {
           transition: 0.5s;
         }
 
-        .card-img-top {
-          height: 250px;
-          object-fit: cover;
-          border-radius: 12px 12px 0 0;
-          transform-origin: center;
-          transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-          &:hover {
-            transform: scale3d(1.05, 1.05, 1.05);
-          }
-        }
-
-        .card-body {
-          padding: 2rem;
-          transform-style: preserve-3d;
-
-          .card-title {
-            font-size: 2.2rem;
-            font-weight: 600;
-            transform: translateZ(20px);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-            &:hover {
-              transform: translateZ(30px) scale(1.05);
-              color: var(--color-teal);
-            }
-          }
-
-          .card-text {
-            font-size: 1.4rem;
-            color: var(--color-text-secondary);
-            transform: translateZ(10px);
-          }
-        }
-
-        .github-link {
-          color: #333;
-          transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          transform-style: preserve-3d;
-
-          i {
-            font-size: 2.2rem;
-            transform: translateZ(20px);
-          }
-
-          &:hover {
-            color: var(--color-teal-dark);
-            transform: translateZ(30px) rotate(360deg) scale(1.2);
-          }
-        }
-
-        .btn-outline-dark {
-          font-size: 1.3rem;
-          font-weight: 500;
-          padding: 0.8rem 2rem;
-          border-radius: 30px;
-          background: linear-gradient(
-            45deg,
-            var(--color-teal),
-            var(--color-teal-dark)
-          );
-          border: none;
-          color: white;
-          transform: translateZ(20px);
-          transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          position: relative;
-          overflow: hidden;
-
-          &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-              90deg,
-              transparent,
-              rgba(255, 255, 255, 0.2),
-              transparent
-            );
-            transition: 0.5s;
-          }
-
-          &:hover {
-            transform: translateZ(30px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4),
-              0 6px 10px rgba(0, 0, 0, 0.1);
-
-            &::before {
-              left: 100%;
-            }
-          }
-        }
-      }
-
-      &:hover {
-        .card {
-          transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2),
-            0 15px 30px rgba(0, 0, 0, 0.15);
+        &:hover {
+          transform: translateZ(30px) scale(1.05);
+          box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4),
+            0 6px 10px rgba(0, 0, 0, 0.1);
 
           &::before {
             left: 100%;
@@ -261,68 +230,10 @@ body {
       }
     }
 
-    @media (max-width: 768px) {
-      .proje-card {
-        height: 400px;
-        margin-bottom: 2rem;
-
-        .card-img-top {
-          height: 200px;
-        }
-      }
-    }
-  }
-
-  /* slayt */
-  .main5 {
-    .swiper {
-      width: 100%;
-      padding: 20px 0;
-      perspective: 1000px;
-    }
-
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: auto;
-      transform-style: preserve-3d;
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-      &:hover {
-        transform: translateZ(30px) scale(1.05);
-      }
-    }
-
-    .card {
-      width: 18rem;
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: none;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: 0.5s;
-      }
-
-      &:hover {
-        transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+    &:hover {
+      .card {
+        transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2),
           0 15px 30px rgba(0, 0, 0, 0.15);
 
         &::before {
@@ -331,143 +242,73 @@ body {
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .proje-card {
+      height: 400px;
+      margin-bottom: 2rem;
+
+      .card-img-top {
+        height: 200px;
+      }
+    }
+  }
 }
 
-/* !about me sayfası */
-.about-me-ana {
-  /* resim kısmı 1 */
-  .about-ana-sayfa {
-    background-image: url(../img/about-me/background3.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+/* slayt */
+.main5 {
+  .swiper {
     width: 100%;
-    height: 100vh;
-    opacity: 95%;
-    position: relative;
-    overflow: hidden;
+    padding: 20px 0;
+    perspective: 1000px;
+  }
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), transparent);
-      transition: all 0.5s ease;
-    }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    &:hover::after {
-      opacity: 0.8;
+    &:hover {
+      transform: translateZ(30px) scale(1.05);
     }
   }
 
-  /*  resim 2 about me */
-  .about-me {
-    .hover-effect {
-      position: relative;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          circle at center,
-          transparent 30%,
-          rgba(33, 150, 243, 0.2)
-        );
-        opacity: 0;
-        transition: all 0.5s ease;
-      }
-
-      &:hover {
-        transform: perspective(1000px) rotateX(10deg) rotateY(10deg)
-          translateZ(20px);
-
-        &::before {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  /* yonlendirme */
-  .yonlendirme {
-    background-image: url("../img/about-me/background6.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    width: 100%;
-    height: 100vh;
-    position: relative;
+  .card {
+    width: 18rem;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
 
     &::before {
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
+      left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), transparent);
-      transition: all 0.5s ease;
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      transform-style: preserve-3d;
-
-      h2,
-      p {
-        transform: translateZ(20px);
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-        &:hover {
-          transform: translateZ(40px) scale(1.1);
-          text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-      }
-    }
-  }
-
-  /* resimlerim */
-  .resimlerim {
-    .hover-grow {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-
-        img {
-          filter: brightness(1.2) contrast(1.1);
-        }
-      }
-    }
-
-    .img-overlay {
       background: linear-gradient(
-        45deg,
-        rgba(33, 150, 243, 0.8),
-        rgba(25, 118, 210, 0.8)
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
       );
-      opacity: 0;
-      transition: all 0.5s ease;
+      transition: 0.5s;
+    }
 
-      .content {
-        transform: translateY(20px);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
+    &:hover {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+        0 15px 30px rgba(0, 0, 0, 0.15);
 
-      &:hover {
-        opacity: 1;
-
-        .content {
-          transform: translateY(0);
-        }
+      &::before {
+        left: 100%;
       }
     }
   }
@@ -688,122 +529,6 @@ body {
   }
 }
 
-/* !fotograf */
-.fotograf {
-  /* Video bölümü */
-  .video-section {
-    height: 100vh; /* Tarayıcı yüksekliği kadar yer kaplar */
-    overflow: hidden; /* Video taşmasını engeller */
-    #background-video {
-      position: absolute;
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1; /* Videoyu içeriğin arkasında tutar */
-    }
-  }
-  /* sabit resimler */
-  /* İçeriği ortalamak için resim video ustundeki yazılar*/
-  .content-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white; /* İçerik için beyaz metin */
-    z-index: 1; /* İçeriğin videonun üstünde kalmasını sağlar */
-    text-align: center;
-  }
-  /* resimler */
-  .urunumfoto {
-    .product-item {
-      position: relative;
-      overflow: hidden;
-      height: auto;
-      max-height: 60rem; /* Maksimum yükseklik 40rem */
-    }
-    .product-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* Sağ üstte */
-    }
-    .top-right {
-      top: 10px;
-      right: 10px;
-      &:hover {
-        transform: scale(0.9);
-      }
-    }
-
-    /* Sol altta */
-    .bottom-left {
-      bottom: 10px;
-      left: 10px;
-      &:hover {
-        transform: scale(0.9);
-      }
-    }
-  }
-
-  /* sabit resim */
-  .fixed {
-    position: relative;
-    background-image: url(../img/Photograph/fixed.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    opacity: 85%;
-  }
-  .fixed2 {
-    position: relative;
-    background-image: url(../img/Photograph/fixed2.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-  }
-}
-
-/* ! yapay zeka resimleri */
-.yapay-zeka {
-  .yapayzeka {
-    p,
-    .img2 {
-      opacity: 0; /* Normalde görünmez */
-      transition: opacity 1.1s ease; /* Geçiş efekti */
-    }
-
-    &:hover p,
-    &:hover .img2 {
-      opacity: 1;
-    }
-    /* resim boyutu */
-    .image-container {
-      transition: transform 0.6s ease; /* Hover geçiş efekti */
-      &:hover {
-        transform: scale(1.1); /* Hover olduğunda resmi büyüt */
-      }
-    }
-    .img {
-      height: 30rem;
-      width: 30rem;
-    }
-    /* kucuk resimler */
-    .img2 {
-      width: 3rem; /* Sanatçı resminin genişliği */
-      height: 3rem; /* Sanatçı resminin yüksekliği */
-    }
-  }
-}
-
 /* responsive */
 @media (max-width: 578px) {
   .index-ana {
@@ -916,32 +641,6 @@ body {
   }
 }
 
-/* Mouse Cursor Effect */
-.cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(33, 150, 243, 0.8);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: all 0.1s ease;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-blur {
-  width: 400px;
-  height: 400px;
-  background: rgba(33, 150, 243, 0.05);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.3s ease;
-  transform: translate(-50%, -50%);
-  filter: blur(50px);
-}
-
 /* Modern Scroll Bar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -971,23 +670,6 @@ html {
 ::selection {
   background: rgba(33, 150, 243, 0.3);
   color: #000;
-}
-
-/* Mouse Shadow Effect */
-.mouse-shadow {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(
-    circle,
-    rgba(33, 150, 243, 0.15),
-    transparent 70%
-  );
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.15s ease;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: multiply;
 }
 
 /* Modern Hover ve Animasyon Efektleri */
@@ -1027,53 +709,6 @@ html {
   }
   100% {
     border-color: #2196f3;
-  }
-}
-
-.index-ana {
-  .section-sirket-logo img {
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    animation: floatAnimation 6s infinite ease-in-out;
-    filter: brightness(1) contrast(1);
-
-    &:hover {
-      filter: brightness(1.2) contrast(1.1) saturate(1.2);
-      transform: scale(1.1) translateY(-10px);
-      animation: glowPulse 2s infinite;
-    }
-  }
-
-  .main3,
-  .main4,
-  .main5 {
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(
-        circle,
-        rgba(33, 150, 243, 0.1),
-        transparent 70%
-      );
-      transform: rotate(0deg);
-      animation: rotateGradient 15s linear infinite;
-      pointer-events: none;
-    }
-  }
-
-  @keyframes rotateGradient {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
   }
 }
 
@@ -1188,94 +823,6 @@ html {
       box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
     }
   }
-}
-
-.about-me-ana {
-  .about-me {
-    .hover-effect {
-      position: relative;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          circle at center,
-          transparent 30%,
-          rgba(33, 150, 243, 0.2)
-        );
-        opacity: 0;
-        transition: all 0.5s ease;
-      }
-
-      &:hover {
-        transform: perspective(1000px) rotateX(10deg) rotateY(10deg)
-          translateZ(20px);
-
-        &::before {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  .resimlerim {
-    .hover-grow {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-
-        img {
-          filter: brightness(1.2) contrast(1.1);
-        }
-      }
-    }
-
-    .img-overlay {
-      background: linear-gradient(
-        45deg,
-        rgba(33, 150, 243, 0.8),
-        rgba(25, 118, 210, 0.8)
-      );
-      opacity: 0;
-      transition: all 0.5s ease;
-
-      .content {
-        transform: translateY(20px);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      &:hover {
-        opacity: 1;
-
-        .content {
-          transform: translateY(0);
-        }
-      }
-    }
-  }
-}
-
-/* Sayfa Kaydırma Göstergesi */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: 9999;
-}
-
-.scroll-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--color-teal), var(--color-teal-dark));
-  width: 0%;
-  transition: width 0.2s ease;
-  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
 }
 
 /* Flutter Bölümü Modern Tasarım */
@@ -1531,244 +1078,6 @@ p {
   &:hover {
     color: var(--color-text-primary);
     transform: translateX(5px);
-  }
-}
-
-/* YouTube Yolculuğu Bölümü */
-.youtube-journey {
-  position: relative;
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 0, 0, 0.05), transparent 70%);
-    animation: rotateGradient 20s linear infinite;
-    pointer-events: none;
-  }
-
-  .youtube-title {
-    font-size: 3.2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
-      background: linear-gradient(
-        90deg,
-        var(--color-teal),
-        var(--color-teal-light)
-      );
-      transition: width 0.4s ease;
-    }
-
-    &:hover::after {
-      width: 100px;
-    }
-  }
-
-  .youtube-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.05);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-      );
-      transition: 0.5s;
-    }
-
-    &:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
-        0 15px 30px rgba(255, 0, 0, 0.1);
-
-      &::before {
-        left: 100%;
-      }
-    }
-
-    .youtube-icon {
-      font-size: 3.5rem;
-      color: #ff0000;
-      margin-bottom: 2rem;
-      transition: all 0.5s ease;
-
-      &:hover {
-        transform: scale(1.2) rotate(360deg);
-        color: #ff4444;
-      }
-    }
-
-    .youtube-card-title {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 1.5rem;
-      transition: all 0.4s ease;
-
-      &:hover {
-        color: #ff0000;
-        transform: translateY(-3px);
-        text-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
-      }
-    }
-
-    .youtube-text {
-      font-size: 1.6rem;
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-      transition: all 0.4s ease;
-
-      &:hover {
-        color: #333;
-        transform: translateX(5px);
-      }
-    }
-
-    .youtube-stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-
-      .stat-item {
-        text-align: center;
-        transition: all 0.4s ease;
-
-        .stat-number {
-          font-size: 2.4rem;
-          font-weight: 600;
-          color: #ff0000;
-          margin-bottom: 0.5rem;
-          transition: all 0.4s ease;
-        }
-
-        .stat-label {
-          font-size: 1.4rem;
-          color: #666;
-          transition: all 0.4s ease;
-        }
-
-        &:hover {
-          transform: translateY(-5px);
-
-          .stat-number {
-            color: #ff4444;
-            text-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
-          }
-
-          .stat-label {
-            color: #333;
-          }
-        }
-      }
-    }
-
-    .youtube-button {
-      display: inline-block;
-      padding: 1.2rem 3rem;
-      font-size: 1.6rem;
-      color: #fff;
-      background: linear-gradient(45deg, #ff0000, #ff4444);
-      border: none;
-      border-radius: 30px;
-      margin-top: 2rem;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #ff4444, #ff0000);
-        transition: 0.5s;
-        z-index: -1;
-        transform: scaleX(0);
-        transform-origin: right;
-      }
-
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3),
-          0 6px 10px rgba(0, 0, 0, 0.1);
-
-        &::before {
-          transform: scaleX(1);
-          transform-origin: left;
-        }
-      }
-    }
-  }
-
-  .youtube-video-container {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 8px rgba(0, 0, 0, 0.1);
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255, 0, 0, 0.2));
-      opacity: 0;
-      transition: 0.5s;
-      z-index: 1;
-    }
-
-    &:hover {
-      transform: scale(1.03);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
-        0 15px 30px rgba(255, 0, 0, 0.1);
-
-      &::before {
-        opacity: 1;
-      }
-    }
-
-    iframe {
-      width: 100%;
-      border-radius: 20px;
-      transition: all 0.5s ease;
-    }
   }
 }
 
