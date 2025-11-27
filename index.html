@@ -225,6 +225,12 @@
       }
 
 
+      /* Profile Section - Fixed Header Düzeltmesi */
+      .profile-section {
+        padding-top: 150px !important;
+        margin-top: 0;
+      }
+
       /* Ana içerik stilleri */
       .blogss {
         color: #333;
@@ -848,19 +854,6 @@
       </nav>
     </header>
 
-    <!-- Google AdSense Reklam Alanı -->
-    <div class="container-fluid reklam-alani text-center py-2" style="background-color: rgba(255,255,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.1);">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-9602891142225263"
-           data-ad-slot="REKLAM_SLOT_NUMARANIZ"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-
     <!-- Ana İçerik -->
     <main>
       <!-- Profil Bölümü -->
@@ -945,12 +938,14 @@
                     </div>
                   </div>
                   
-                  <a href="ferhatuslu.pdf" download class="btn btn-primary btn-lg">
-                    <i class="fas fa-save me-2"></i>CV'yi İndir
-                  </a>
-                  <a href="ferhatuslu.pdf" target="_blank" class="btn btn-outline-dark btn-lg">
-                     <i class="fas fa-eye me-2"></i>CV'yi Görüntüle
-                  </a>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="ferhatuslu.pdf" download class="btn btn-primary btn-lg" style="flex: 1; min-width: 120px;">
+                      <i class="fas fa-save me-2"></i>CV'yi İndir
+                    </a>
+                    <a href="ferhatuslu.pdf" target="_blank" class="btn btn-outline-dark btn-lg" style="flex: 1; min-width: 120px;">
+                       <i class="fas fa-eye me-2"></i>CV'yi Görüntüle
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
