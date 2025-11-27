@@ -273,44 +273,6 @@ body {
     }
   }
 
-  /* fixed resim */
-  .ana-sayfa2 {
-    position: relative;
-    background-image: url(../img/yapayzeka/adam2.jpeg);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-
-    .content-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      z-index: 1;
-      text-align: center;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-
-      h1,
-      p {
-        transform: translateZ(30px);
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-        &:hover {
-          transform: translateZ(50px) scale(1.1);
-          text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-      }
-    }
-  }
-
   /* slayt */
   .main5 {
     .swiper {
