@@ -37,12 +37,12 @@
     <!-- Sosyal Medya Meta Etiketleri -->
     <meta property="og:title" content="Dengnekir - Yazılım ve Fotoğrafçılık Blogu" />
     <meta property="og:description" content="Web tasarım, mobil uygulama geliştirme, yapay zeka ve fotoğrafçılık üzerine özgün içerikler." />
-    <meta property="og:image" content="img/favicon2.png" />
+    <meta property="og:image" content="img/favicon.png" />
     <meta property="og:url" content="https://dengnekir.github.io/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dengnekir" />
     <meta name="twitter:description" content="Yazılım ve Fotoğrafçılık Blogu" />
-    <meta name="twitter:image" content="img/favicon2.png" />
+    <meta name="twitter:image" content="img/favicon.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="8x8" />
@@ -377,18 +377,50 @@
       }
       
       /* Timeline İş Deneyimi Düzenlemesi */
+      .timeline {
+        position: relative;
+      }
+      
       .timeline::before {
         background: linear-gradient(to bottom, #175a2e, #99c1b9);
+        transition: box-shadow 0.4s ease;
+      }
+      
+      .timeline:hover::before {
+        box-shadow: inset 0 0 20px rgba(153, 193, 185, 0.4);
       }
       
       .timeline-item::before {
         background: linear-gradient(45deg, #175a2e, #99c1b9);
         box-shadow: 0 0 15px rgba(153, 193, 185, 0.6);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        z-index: 2;
       }
       
       .timeline-item:hover::before {
-        transform: translateX(-50%) scale(1.3);
-        box-shadow: 0 0 25px rgba(153, 193, 185, 0.8);
+        transform: translateX(-50%) scale(1.5);
+        box-shadow: 0 0 35px rgba(153, 193, 185, 1), 
+                    inset 0 0 15px rgba(255, 255, 255, 0.3);
+      }
+      
+      /* Timeline noktaları arasında bağlantılı çizgi efekti */
+      .timeline-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        width: 3px;
+        height: 80px;
+        background: linear-gradient(to bottom, rgba(153, 193, 185, 0.2), rgba(153, 193, 185, 0.05));
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        transition: all 0.4s ease;
+      }
+      
+      .timeline-item:hover::after,
+      .timeline-item:hover ~ .timeline-item::after {
+        background: linear-gradient(to bottom, rgba(153, 193, 185, 0.6), rgba(153, 193, 185, 0.2));
+        box-shadow: 0 0 15px rgba(153, 193, 185, 0.5);
       }
       
       .timeline-content {
@@ -846,7 +878,7 @@
       <nav class="navbar navbar-expand-md navbar-light modern-nav">
         <div class="container modern-container">
           <a href="blogs.html" class="navbar-brand a-img">
-            <img src="img/favicon2.png" alt="logo" class="nav-logo" />
+            <img src="img/favicon.png" alt="logo" class="nav-logo" />
           </a>
           
           <div class="navbar-collapse" id="navbarContent">
@@ -857,12 +889,7 @@
                   <span>Home</span>
                 </a>
               </li>
-				  <li class="nav-item">
-                <a href="mp3/frontend/index.html" class="nav-link fs-6 modern-link active">
-                  <i class="fas fa-download nav-icon"></i>
-                  <span>Downloader</span>
-                </a>
-              </li>
+	
 				 </li>
 				
             </ul>
@@ -1467,7 +1494,15 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                 </div>
               </a>
             </div>
-
+                 <!-- Elevanlabs -->
+             <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <a href="https://elevenlabs.io/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/elevanlabs.png" class="img-fluid w-50 hover-effect mb-3" alt="Elevanlabs">
+                  <h6 class="text-dark fw-bold">Elevanlabs</h6>
+                </div>
+              </a>
+            </div>
             <!-- Cursor IDE -->
             <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
               <a href="https://www.cursor.com/" target="_blank" class="text-decoration-none">
