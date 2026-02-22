@@ -48,267 +48,418 @@
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="8x8" />
 
     <!-- CSS Bağlantıları -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/header.css" />
 
     <!-- JavaScript Bağlantıları -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script defer src="javascript/main.js"></script>
 
-    <!-- WOW.js Başlat -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        new WOW().init();
-      });
-    </script>
+
 
     <!-- Google AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9602891142225263"
      crossorigin="anonymous"></script>
 
     <style>
-      .cv-link {
-        transition: all 0.3s ease;
+      /* ===== GENEL RESET & TEMA ===== */
+      * { box-sizing: border-box; }
+      body { font-family: 'Inter', sans-serif; }
+
+      /* ===== REVEAL ANİMASYONU (CSS only, JS ile tetiklenir) ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
-      .cv-link:hover {
-        color: #333 !important;
-        font-weight: 700;
-      }
-
-      /* Modern Header Stilleri */
+      /* ===== NAVBAR ===== */
       .navbar {
-        background-color: rgba(255, 255, 255, 0.95);
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        padding: 0;
-        margin: 15px 20px;
-      }
-      
-      .navbar:hover {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transform: translateY(-3px);
-      }
-      
-      .modern-nav {
-        padding: 15px;
-      }
-      
-      .modern-container {
-        padding: 0 20px;
-      }
-      
-      .nav-logo {
-        height: 4.5rem;
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-      
-      .nav-logo:hover {
-        transform: rotate(5deg) scale(1.1);
-        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-      }
-      
-      .modern-menu {
-        display: flex;
-        gap: 15px;
-      }
-      
-      .modern-link {
-        position: relative;
-        padding: 12px 20px;
-        border-radius: 10px;
+        background: rgba(255,255,255,0.55);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 50px;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        padding: 8px 20px;
+        margin: 12px auto;
+        max-width: 500px;
         transition: all 0.4s ease;
-        overflow: hidden;
-        z-index: 1;
-        font-weight: 500;
-        color: #333 !important;
+      }
+      .navbar.scrolled {
+        background: rgba(255,255,255,0.92);
+        box-shadow: 0 4px 28px rgba(0,0,0,0.08);
+      }
+      .nav-inner {
         display: flex;
         align-items: center;
-        gap: 8px;
-      }
-      
-      .modern-link::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        justify-content: space-between;
         width: 100%;
-        height: 0;
-        background: linear-gradient(to top, rgba(153, 193, 185, 0.2), transparent);
-        transition: all 0.4s ease;
-        z-index: -1;
-        border-radius: 10px;
       }
-      
-      .modern-link:hover {
-        color: #175a2e !important;
-        transform: translateY(-5px);
-        font-weight: 600 !important;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
       }
-      
-      .modern-link:hover::before {
-        height: 100%;
+      .nav-logo {
+        height: 60px;
+        transition: transform 0.3s ease;
       }
-      
-      .modern-link.active {
-        color: #175a2e !important;
-        font-weight: 700 !important;
-        background-color: rgba(153, 193, 185, 0.1);
+      .nav-logo:hover {
+        transform: scale(1.08);
       }
-      
-      .modern-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: 5px;
-        left: 50%;
-        width: 40%;
-        height: 3px;
-        background: linear-gradient(90deg, #175a2e, #99c1b9);
-        transform: translateX(-50%);
-        border-radius: 10px;
+      .nav-brand-text {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        background: linear-gradient(135deg, #175a2e, #2d8a4e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-      
-      .nav-icon {
-        font-size: 1.2rem;
+      .nav-links {
+        display: flex;
+        gap: 6px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-pill {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #555;
+        text-decoration: none;
         transition: all 0.3s ease;
       }
-      
-      .modern-link:hover .nav-icon {
-        transform: scale(1.2);
+      .nav-pill:hover {
+        background: rgba(23,90,46,0.08);
         color: #175a2e;
       }
-      
+      .nav-pill.active {
+        background: rgba(23,90,46,0.1);
+        color: #175a2e;
+      }
+      .nav-pill i {
+        font-size: 0.9rem;
+      }
       @media (max-width: 768px) {
-        .modern-menu {
-          gap: 5px;
+        .navbar {
+          max-width: 320px;
+          padding: 6px 14px;
+          margin: 8px auto;
         }
-        
-        .modern-link {
-          padding: 8px;
-          font-size: 0.8rem !important;
-        }
-        
-        .modern-link .nav-icon {
-          margin-right: 2px;
-          font-size: 0.9rem;
-        }
-        
-        .nav-logo {
-          height: 3rem;
-        }
+        .nav-logo { height: 28px; }
+        .nav-brand-text { font-size: 0.9rem; }
+        .nav-pill { padding: 5px 10px; font-size: 0.75rem; }
+        .nav-pill span { display: none; }
+      }
+      @media (max-width: 480px) {
+        .navbar { max-width: 260px; }
+        .nav-brand-text { display: none; }
       }
 
-      .nav-link.active {
-        color: #333 !important;
-        border-color: #333 !important;
-      }
-
-      .btn-outline-secondary {
-        border-color: #333;
-        color: #333;
-      }
-
-      .btn-outline-secondary:hover {
-        background-color: #333;
-        border-color: #333;
-        color: white;
-      }
-
-
-      /* Profile Section - Fixed Header Düzeltmesi */
+      /* ===== PROFİL BÖLÜMÜ ===== */
       .profile-section {
-        padding-top: 150px !important;
+        padding-top: 100px !important;
         margin-top: 0;
+        background: linear-gradient(-45deg, #e8f5e9, #f1f8e9, #e0f2f1, #e8f0ed, #f5f9f7);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        position: relative;
+        overflow: hidden;
+      }
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        25% { background-position: 100% 50%; }
+        50% { background-position: 100% 0%; }
+        75% { background-position: 0% 100%; }
+        100% { background-position: 0% 50%; }
+      }
+      /* Floating particles */
+      .profile-section::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(153,193,185,0.2);
+        filter: blur(40px);
+        pointer-events: none;
+        animation: particle1 6s ease-in-out infinite;
+      }
+      .profile-section::after {
+        content: '';
+        position: absolute;
+        bottom: 15%;
+        left: 8%;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: rgba(23,90,46,0.1);
+        filter: blur(50px);
+        pointer-events: none;
+        animation: particle2 8s ease-in-out infinite;
+      }
+      @keyframes particle1 {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        33% { transform: translate(40px, -30px) scale(1.3); opacity: 1; }
+        66% { transform: translate(-20px, 20px) scale(0.8); opacity: 0.4; }
+      }
+      @keyframes particle2 {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+        50% { transform: translate(30px, -40px) scale(1.2); opacity: 0.8; }
+      }
+      /* Extra particle via box-shadow trick */
+      .profile-section .container {
+        position: relative;
+        z-index: 1;
+      }
+      /* Floating themed icons */
+      .floating-icon {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: white;
+        pointer-events: none;
+        opacity: 0.5;
+        z-index: 0;
+      }
+      .fi-1 {
+        top: 15%; right: 12%;
+        background: rgba(76,175,80,0.35);
+        animation: floatIcon1 7s ease-in-out infinite;
+      }
+      .fi-2 {
+        top: 50%; left: 5%;
+        background: rgba(255,193,7,0.35);
+        animation: floatIcon2 9s ease-in-out infinite;
+      }
+      .fi-3 {
+        bottom: 20%; right: 8%;
+        background: rgba(33,150,243,0.3);
+        animation: floatIcon3 8s ease-in-out infinite;
+      }
+      .fi-4 {
+        top: 30%; left: 15%;
+        background: rgba(156,39,176,0.25);
+        animation: floatIcon1 11s ease-in-out infinite reverse;
+      }
+      .fi-5 {
+        bottom: 35%; left: 45%;
+        background: rgba(76,175,80,0.2);
+        animation: floatIcon2 10s ease-in-out infinite 2s;
+      }
+      @keyframes floatIcon1 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(25px, -20px) rotate(15deg); }
+        66% { transform: translate(-15px, 15px) rotate(-10deg); }
+      }
+      @keyframes floatIcon2 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(-30px, -25px) rotate(20deg); }
+      }
+      @keyframes floatIcon3 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(20px, -30px) scale(1.15); }
       }
 
-      /* Ana içerik stilleri */
-      .blogss {
-        color: #333;
+      /* Gradient text for brand name */
+      .gradient-text {
+        background: linear-gradient(135deg, #175a2e 0%, #2d8a4e 40%, #99c1b9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
 
-      .blogss h1, .blogss h2, .blogss h3, .blogss h4, .blogss h5 {
-        color: #222;
+      /* ===== ANA İÇERİK STİLLERİ ===== */
+      .blogss { color: #333; }
+      .blogss h1, .blogss h2, .blogss h3, .blogss h4, .blogss h5 { color: #1a1a1a; }
+      .blogss .text-muted { color: #666 !important; }
+
+      /* Section başlıkları */
+      .section-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #175a2e;
+      }
+      .section-subtitle {
+        color: #6b7c74;
+        font-weight: 400;
       }
 
-      .blogss .text-muted {
-        color: #666 !important;
-      }
-
+      /* ===== BUTONLAR ===== */
       .blogss .btn-primary {
-        background-color: #2F4F4F;
-        border-color: #2F4F4F;
+        background: linear-gradient(135deg, #1a5c30, #2d8a4e);
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       }
-
+      .blogss .btn-primary::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, #2d8a4e, #3ba55c);
+        transition: left 0.4s ease;
+        z-index: -1;
+      }
       .blogss .btn-primary:hover {
-        background-color: #3D6B6B;
-        border-color: #3D6B6B;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 28px rgba(23,90,46,0.3);
       }
-
-      .blogss .btn-outline-dark {
-        color: #2F4F4F;
-        border-color: #2F4F4F;
+      .blogss .btn-primary:hover::after {
+        left: 0;
       }
-
-      .blogss .btn-outline-dark:hover {
-        background-color: #2F4F4F;
+      .btn-outline-dark {
+        border: 2px solid #2a2a2a;
+        color: #2a2a2a;
+        border-radius: 12px;
+        padding: 10px 22px;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+      .btn-outline-dark::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 0; height: 100%;
+        background: linear-gradient(90deg, #175a2e, #2a2a2a);
+        transition: width 0.4s ease;
+        z-index: -1;
+      }
+      .btn-outline-dark:hover {
         color: white;
+        border-color: #175a2e;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.15);
       }
-
-      .blogss .progress-bar {
-        background-color: #175a2e;
+      .btn-outline-dark:hover::before {
+        width: 100%;
       }
-
-      .blogss .card {
-        border-color: rgba(47, 79, 79, 0.1);
-      }
-
-      .blogss .card:hover {
-        border-color: rgba(47, 79, 79, 0.3);
-      }
-
-      /* Footer renkleri değişmeyecek */
-      footer {
-        background-color: #212529;
-      }
-
-      footer a, footer p {
-        color: #fff !important;
-      }
-
-      footer a:hover {
-        color: #e9ecef !important;
-      }
-
       .btn-outline-primary {
-        color: #99c1b9;
-        border-color: #99c1b9;
+        color: #175a2e;
+        border: 2px solid #175a2e;
+        border-radius: 12px;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       }
-
+      .btn-outline-primary::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 0; height: 100%;
+        background: linear-gradient(90deg, #175a2e, #99c1b9);
+        transition: width 0.4s ease;
+        z-index: -1;
+      }
       .btn-outline-primary:hover {
-        background-color: #99c1b9;
-        border-color: #99c1b9;
         color: white;
+        border-color: transparent;
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 28px rgba(23,90,46,0.25);
+      }
+      .btn-outline-primary:hover::before {
+        width: 100%;
       }
 
-      /* Progress bar animasyonunu scroll'a bağlama */
+      /* ===== KARTLAR ===== */
+      .card {
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      }
+      .card-img-top {
+        transition: transform 0.4s ease;
+      }
+      .card:hover .card-img-top {
+        transform: scale(1.03);
+      }
+      .card-title {
+        font-weight: 700;
+        color: #1a1a1a;
+        transition: color 0.3s ease;
+      }
+      .card:hover .card-title {
+        color: #175a2e;
+      }
+
+      /* ===== CONTACT LİNKLERİ ===== */
+      .contact-link {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+      .contact-link:hover {
+        background: rgba(23,90,46,0.04);
+        border-left-color: #175a2e;
+        color: #175a2e !important;
+        padding-left: 20px;
+      }
+      .contact-icon {
+        font-size: 20px;
+        color: #175a2e;
+        width: 28px;
+        text-align: center;
+        transition: color 0.3s ease;
+      }
+      .contact-text {
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      /* ===== PROGRESS BAR ===== */
       .progress-bar {
         width: 0;
         transition: width 1.5s ease-in-out;
-        background: linear-gradient(90deg, #175a2e, #99c1b9) !important;
+        background: linear-gradient(90deg, #175a2e, #3d9a5e, #99c1b9) !important;
+        border-radius: 8px;
         position: relative;
         overflow: hidden;
       }
-
       .progress-bar::after {
         content: '';
         position: absolute;
@@ -316,510 +467,223 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-        animation: progressShine 2s infinite linear;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        animation: progressShine 2.5s infinite linear;
       }
-
       @keyframes progressShine {
-        100% {
-          left: 100%;
-        }
+        100% { left: 100%; }
       }
 
-      .progress-bar.animate {
-        opacity: 1;
-      }
-      
-      /* Yeni eklenen stiller */
-      /* Contact linkleri için stil */
-      .contact-link {
-        text-decoration: none;
-        color: #333;
-        transition: all 0.3s ease;
-        display: block;
-        padding: 10px 15px;
-        border-radius: 8px;
-        transform: translateX(0);
-      }
-      
-      .contact-link:hover {
-        background: linear-gradient(90deg, #f0f0f0, transparent);
-        transform: translateX(10px);
-        color: #175a2e !important;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      }
-      
-      .contact-icon {
-        font-size: 22px;
-        color: #175a2e;
-        transition: all 0.4s ease;
-      }
-      
-      .contact-link:hover .contact-icon {
-        transform: scale(1.2);
-        color: #99c1b9;
-        text-shadow: 0 0 10px rgba(153, 193, 185, 0.5);
-      }
-      
-      .contact-text {
-        font-size: 16px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-      }
-      
-      .contact-link:hover .contact-text {
-        font-weight: 700;
-        color: #175a2e;
-        letter-spacing: 0.5px;
-      }
-      
-      /* Timeline İş Deneyimi Düzenlemesi */
-      .timeline {
-        position: relative;
-      }
-      
+      /* ===== TİMELİNE ===== */
+      .timeline { position: relative; }
       .timeline::before {
         background: linear-gradient(to bottom, #175a2e, #99c1b9);
-        transition: box-shadow 0.4s ease;
       }
-      
-      .timeline:hover::before {
-        box-shadow: inset 0 0 20px rgba(153, 193, 185, 0.4);
-      }
-      
-      .timeline-item::before {
-        background: linear-gradient(45deg, #175a2e, #99c1b9);
-        box-shadow: 0 0 15px rgba(153, 193, 185, 0.6);
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
-        z-index: 2;
-      }
-      
-      .timeline-item:hover::before {
-        transform: translateX(-50%) scale(1.5);
-        box-shadow: 0 0 35px rgba(153, 193, 185, 1), 
-                    inset 0 0 15px rgba(255, 255, 255, 0.3);
-      }
-      
-      /* Timeline noktaları arasında bağlantılı çizgi efekti */
-      .timeline-item:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        width: 3px;
-        height: 80px;
-        background: linear-gradient(to bottom, rgba(153, 193, 185, 0.2), rgba(153, 193, 185, 0.05));
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%);
-        transition: all 0.4s ease;
-      }
-      
-      .timeline-item:hover::after,
-      .timeline-item:hover ~ .timeline-item::after {
-        background: linear-gradient(to bottom, rgba(153, 193, 185, 0.6), rgba(153, 193, 185, 0.2));
-        box-shadow: 0 0 15px rgba(153, 193, 185, 0.5);
-      }
-      
       .timeline-content {
         background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.4s ease;
+        padding: 24px;
+        border-radius: 14px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
       }
-      
       .timeline-item:hover .timeline-content {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transform: translateY(-5px);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+        transform: translateY(-3px);
       }
-      
-      .timeline-item.left .timeline-content {
-        margin-right: 30px;
+      .timeline-item.left .timeline-content { margin-right: 30px; }
+      .timeline-item.right .timeline-content { margin-left: 30px; }
+      .timeline-item::before {
+        background: linear-gradient(45deg, #175a2e, #99c1b9);
+        box-shadow: 0 0 12px rgba(153,193,185,0.4);
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
       }
-      
-      .timeline-item.right .timeline-content {
-        margin-left: 30px;
+      .timeline-item:hover::before {
+        transform: translateX(-50%) scale(1.3);
+        box-shadow: 0 0 20px rgba(153,193,185,0.7);
       }
-      
-      /* Footer hover efektleri */
-      footer .fa-lg {
-        transition: all 0.4s ease;
-      }
-      
-      footer a:hover .fa-lg {
-        transform: translateY(-5px) scale(1.2);
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-      }
-      
 
-      
-      
-      /* Footer için ek stiller */
+      /* ===== PROJELER BÖLÜMÜ ===== */
+      .projects-section {
+        background: #ffffff;
+      }
+      .swiper-slide {
+        height: auto;
+        padding: 10px;
+      }
+      .swiper-pagination-bullet { background-color: #bbb; opacity: 0.5; }
+      .swiper-pagination-bullet-active { background-color: #175a2e; opacity: 1; }
+      .proje-card .card { height: 100%; }
+
+      /* ===== PDF BÖLÜMÜ ===== */
+      .pdf-section { background: #f8faf9; }
+
+      /* ===== YETKİNLİKLER ===== */
+      .skills-section {
+        background: linear-gradient(180deg, #f4f8f6 0%, #edf2ef 100%);
+      }
+      .skill-item {
+        padding: 8px 0;
+        transition: all 0.3s ease;
+      }
+      .skill-item:hover h5 {
+        color: #175a2e;
+      }
+
+      /* ===== ARAÇLAR ===== */
+      .tools-section {
+        background: linear-gradient(180deg, #edf2ef 0%, #f4f8f6 100%);
+      }
+
+      /* ===== GITHUB İKON ===== */
+      .github-link {
+        color: #175a2e;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      .github-link:hover {
+        color: #2d8a4e !important;
+        transform: scale(1.15);
+      }
+      .fa-github { color: #175a2e; }
+
+      /* ===== PROFİL RESMİ ===== */
+      .profile-section .card img {
+        transition: transform 0.5s ease;
+      }
+      .profile-section .card:hover img {
+        transform: scale(1.03);
+      }
+
+      /* ===== FOOTER ===== */
       footer {
+        background: #111 !important;
         position: relative;
         overflow: hidden;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
       }
-      
       footer::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 5px;
+        height: 3px;
         background: linear-gradient(90deg, #175a2e, #99c1b9, #175a2e);
       }
-      
+      footer a, footer p { color: #ccc !important; }
+      footer a:hover { color: #fff !important; }
+      footer .fa-lg {
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      footer a:hover .fa-lg {
+        transform: translateY(-3px);
+        color: #99c1b9 !important;
+      }
 
-      @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+      /* ===== SOSYAL İKON GRID ===== */
+      .social-icon-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
       }
-      
-  
-      
-      /* Profil resmi hover efekti */
-      .profile-section .card {
-        overflow: hidden;
+      .social-icon-grid .btn {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 14px;
+        font-size: 1.4rem;
       }
-      
-      .profile-section .card img {
-        transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-        transform-origin: bottom;
+      .social-icon-grid .btn i {
+        margin: 0 !important;
+        font-size: 1.4rem;
       }
-      
-      .profile-section .card:hover img {
-        transform: scale(1.05) translateY(-10px);
-        filter: saturate(1.1);
+
+      /* ===== MOBİL RESPONSIVE ===== */
+      @media (max-width: 992px) {
+        .profile-section {
+          padding-top: 80px !important;
+        }
       }
-      
-      /* Yetkinlik kartları hover efekti iyileştirmesi */
-      .skill-item {
-        position: relative;
-        padding: 5px 0;
-        z-index: 1;
+      @media (max-width: 768px) {
+        .profile-section {
+          padding-top: 70px !important;
+        }
+        .profile-section .card-body {
+          padding: 16px !important;
+        }
+        .profile-section h2.card-title {
+          font-size: 1.6rem !important;
+        }
+        .profile-section h3 {
+          font-size: 0.95rem !important;
+        }
+        .profile-section h1.gradient-text {
+          font-size: 1.8rem !important;
+        }
+        .profile-section .lead {
+          font-size: 0.85rem !important;
+        }
+        .social-icon-grid .btn {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+        }
+        .social-icon-grid .btn i {
+          font-size: 1.1rem;
+        }
+        .contact-item {
+          margin-bottom: 4px !important;
+        }
+        .contact-link {
+          padding: 6px 10px !important;
+        }
+        .contact-text {
+          font-size: 12px !important;
+        }
+        .contact-icon {
+          font-size: 15px !important;
+          width: 22px !important;
+        }
+        .profile-section .bg-gradient {
+          padding: 12px !important;
+        }
+        .display-4 {
+          font-size: 1.6rem !important;
+        }
+        .timeline-item.left .timeline-content,
+        .timeline-item.right .timeline-content {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .profile-section .col-lg-6 {
+          width: 100%;
+          max-width: 100%;
+          flex: 0 0 100%;
+        }
       }
-      
-      .skill-item::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: linear-gradient(90deg, rgba(153, 193, 185, 0.1), transparent);
-        transition: all 0.4s ease;
-        z-index: -1;
-        border-radius: 8px;
-      }
-      
-      .skill-item:hover::before {
-        width: 100%;
-      }
-      
-      .skill-item:hover h5 {
-        transform: translateX(5px);
-        color: #175a2e;
-      }
-      
-      /* Timeline elementi çeşitlendirme */
-      .timeline-item:nth-child(odd)::before {
-        background: linear-gradient(135deg, #175a2e, #99c1b9);
-      }
-      
-      .timeline-item:nth-child(even)::before {
-        background: linear-gradient(45deg, #99c1b9, #175a2e);
-      }
-      
-      .timeline-item.left:hover .timeline-content {
-        transform: translateX(10px) translateY(-5px);
-      }
-      
-      .timeline-item.right:hover .timeline-content {
-        transform: translateX(-10px) translateY(-5px);
-      }
-      
-      /* İletişim kartları ve butonlar için iyileştirmeler */
-      .contact-link {
-        border-left: 0 solid transparent;
-        position: relative;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      }
-      
-      .contact-link::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 3px;
-        background: linear-gradient(to bottom, transparent, #175a2e, transparent);
-        opacity: 0;
-        transition: all 0.4s ease;
-      }
-      
-      .contact-link:hover {
-        background: linear-gradient(90deg, rgba(242, 242, 242, 0.8), transparent);
-        transform: translateX(15px);
-        padding-left: 25px;
-      }
-      
-      .contact-link:hover::after {
-        opacity: 1;
-      }
-      
-      /* CV İndir butonu iyileştirmesi */
-      .btn-outline-primary {
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-        border-width: 2px;
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-      
-      .btn-outline-primary::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 150%;
-        height: 150%;
-        background: linear-gradient(45deg, #175a2e, #99c1b9);
-        z-index: -1;
-        transform: translate(-50%, -50%) rotate(45deg) scale(0);
-        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-      
-      .btn-outline-primary:hover {
-        color: white !important;
-        border-color: transparent;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(153, 193, 185, 0.3);
-      }
-      
-      .btn-outline-primary:hover::before {
-        transform: translate(-50%, -50%) rotate(45deg) scale(1);
-      }
-      
-      .btn-outline-primary:hover i {
-        transform: translateX(-5px);
-      }
-      
-      .btn-outline-primary i {
-        transition: all 0.3s ease;
-      }
-      
-      /* Ana butonlar için iyileştirmeler */
-      .btn-primary, .btn-outline-dark {
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-      
-      .btn-primary::after, .btn-outline-dark::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -100%;
-        width: 70px;
-        height: 200px;
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(30deg);
-        transition: all 0.5s ease;
-        z-index: -1;
-      }
-      
-      .btn-primary:hover, .btn-outline-dark:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-      
-      .btn-primary:hover::after, .btn-outline-dark:hover::after {
-        left: 120%;
-      }
-      
-      
-      /* Projeler bölümü CSS */
-      .swiper-slide {
-        height: auto;
-        padding: 10px;
-        transition: all 0.5s ease;
-      }
-      
-      .swiper-slide:hover {
-        transform: translateY(-10px);
-      }
-      
-      .card {
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        border: none;
-        overflow: hidden;
-        height: 100%;
-        position: relative;
-        z-index: 1;
-      }
-      
-      .card::before {
-        content: '';
-        position: absolute;
-        top: -100%;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(23, 90, 46, 0.1), transparent);
-        transition: all 0.5s ease;
-        z-index: -1;
-      }
-      
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-      }
-      
-      .card:hover::before {
-        top: 0;
-        opacity: 0.3;
-      }
-      
-      .card-img-top {
-        transition: all 0.4s ease;
-        transform-origin: center;
-      }
-      
-      .card:hover .card-img-top {
-        transform: scale(1.03);
-      }
-      
-      .card-title {
-        position: relative;
-        display: inline-block;
-        transition: all 0.3s ease;
-        color: #333;
-      }
-      
-      .card-title::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #175a2e, #99c1b9);
-        transition: all 0.3s ease;
-      }
-      
-      .card:hover .card-title {
-        color: #175a2e;
-      }
-      
-      .card:hover .card-title::after {
-        width: 100%;
-      }
-      
-      .btn-outline-dark {
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-        border: 2px solid #333;
-        color: #333;
-      }
-      
-      .btn-outline-dark::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, #175a2e, #444);
-        transition: all 0.4s ease;
-        z-index: -1;
-      }
-      
-      .btn-outline-dark:hover {
-        color: white;
-        border-color: #175a2e;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(23, 90, 46, 0.2);
-      }
-      
-      .btn-outline-dark:hover::before {
-        left: 0;
-      }
-      
-      /* Swiper Pagination Renkleri */
-      .swiper-pagination-bullet {
-        background-color: #444;
-        opacity: 0.5;
-      }
-      
-      .swiper-pagination-bullet-active {
-        background-color: #175a2e;
-        opacity: 1;
-      }
-      
-      /* index.html'deki projelerim bölümünden eklenen stiller */
-      .proje-card .card {
-        height: 100%;
-        transition: all 0.4s ease;
-      }
-      
-      .proje-card .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      }
-      
-      .proje-card .btn-outline-dark {
-        transition: all 0.3s ease;
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-      }
-      
-      .proje-card .btn-outline-dark::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: all 0.5s ease;
-        z-index: -1;
-      }
-      
-      .proje-card .btn-outline-dark:hover::before {
-        left: 100%;
-      }
-      
-      /* Github ikon rengi */
-      .github-link {
-        transition: all 0.5s ease;
-      }
-      
-      .github-link:hover {
-        transform: rotate(360deg) scale(1.2);
-        color: #99c1b9 !important;
-      }
-      
-      .proje-card .github-link {
-        transition: all 0.5s ease;
-        color: #175a2e;
-      }
-      
-      .proje-card .github-link:hover {
-        transform: rotate(360deg) scale(1.2);
-        color: #99c1b9 !important;
-      }
-      
-      .fa-github {
-        color: #175a2e;
+      @media (max-width: 480px) {
+        .profile-section h2.card-title {
+          font-size: 1.4rem !important;
+        }
+        .profile-section h1.gradient-text {
+          font-size: 1.5rem !important;
+        }
+        .social-icon-grid .btn {
+          width: 42px;
+          height: 42px;
+        }
+        .social-icon-grid .btn i {
+          font-size: 1rem;
+        }
+        .social-icon-grid {
+          gap: 8px;
+        }
       }
     </style>
   </head>
@@ -831,25 +695,15 @@
 </amp-auto-ads>
     <!-- Header -->
     <header>
-      <nav class="navbar navbar-expand-md navbar-light modern-nav">
-        <div class="container modern-container">
-          <a href="index.html" class="navbar-brand a-img">
+      <nav class="navbar">
+        <div class="nav-inner">
+          <a href="index.html" class="nav-brand">
             <img src="img/favicon.png" alt="logo" class="nav-logo" />
+            <span class="nav-brand-text">Dengnekir</span>
           </a>
-          
-          <div class="navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto modern-menu">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link fs-6 modern-link active">
-                  <i class="fas fa-home nav-icon"></i>
-                  <span>Home</span>
-                </a>
-              </li>
-	
-				 </li>
-				
-            </ul>
-          </div>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-pill active"><i class="fas fa-home"></i><span>Home</span></a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -858,32 +712,38 @@
     <main>
       <!-- Profil Bölümü -->
       <section class="profile-section py-5 bg-light">
+        <!-- Floating themed icons -->
+        <div class="floating-icon fi-1"><i class="fas fa-code"></i></div>
+        <div class="floating-icon fi-2"><i class="fas fa-bolt"></i></div>
+        <div class="floating-icon fi-3"><i class="fas fa-camera"></i></div>
+        <div class="floating-icon fi-4"><i class="fas fa-mountain"></i></div>
+        <div class="floating-icon fi-5"><i class="fas fa-leaf"></i></div>
         <div class="container">
           <div class="row">
             <!-- Sol Profil Bilgileri -->
             <div class="col-lg-6 mb-4 mb-lg-0">
-              <div class="card border-0 shadow-sm h-100 wow animate__fadeInUp" data-wow-duration="1s">
+              <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-4">
                   <h2 class="card-title display-4 mb-4">Ferhat Uslu</h2>
-                  <h3 class="h4 text-muted mb-4">Yazılım Mühendisi</h3>
+                  <h3 class="h4 text-muted mb-4">Yazılım Mühendisi - Elektrik</h3>
                   
                   <div class="social-links mb-4">
                         <!-- İlk Kısım (Yazı) -->
-            <div class="col-lg-6 mb-4 text-center text-lg-start wow animate__fadeInRight" data-wow-duration="1s">
-              <h1 class="display-3 fw-bold mb-4">Dengnekir</h1>
-              <p class="lead mb-4">Yazılım, Fotoğrafçılık ve Teknoloji üzerine <b></b>özgün içerikler.</p>
-              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-                <a href="https://www.youtube.com/@mavistanbul" target="_blank" class="btn btn-primary btn-lg">
-                  <i class="fab fa-2x fa-youtube m-2 me-4"></i>
+            <div class="col-lg-6 mb-4 text-center text-lg-start">
+              <h1 class="display-3 fw-bold mb-4 gradient-text">Dengnekir</h1>
+              <p class="lead mb-4">Yazılım, Fotoğrafçılık, Elektrik ve Teknoloji üzerine <b></b>özgün içerikler.</p>
+              <div class="social-icon-grid">
+                <a href="https://www.youtube.com/@mavistanbul" target="_blank" class="btn btn-primary">
+                  <i class="fab fa-youtube"></i>
                 </a>
-                <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark btn-lg">
-                  <i class="fab fa-2x fa-github m-2 me-4"></i>
+                <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark">
+                  <i class="fab fa-github"></i>
                 </a>
-				    <a href="https://play.google.com/store/apps/dev?id=8420494504341897366&hl=tr" target="_blank" class="btn btn-primary btn-lg">
-                 <i class="fab  fa-2x fa-google-play m-2 me-4"></i>
+				    <a href="https://play.google.com/store/apps/dev?id=8420494504341897366&hl=tr" target="_blank" class="btn btn-primary">
+                  <i class="fab fa-google-play"></i>
                 </a>
-                <a href="https://tr.pinterest.com/dengnekir/" target="_blank" class="btn btn-outline-dark btn-lg">
-                  <i class="fab fa-2x fa-pinterest m-2 me-4"></i>
+                <a href="https://tr.pinterest.com/dengnekir/" target="_blank" class="btn btn-outline-dark">
+                  <i class="fab fa-pinterest"></i>
                 </a>
               </div>
             </div>
@@ -918,12 +778,7 @@
                         <span class="ms-3 contact-text">İstanbul Topkapı Üniversitesi<br>Elektrik (2025-)</span>
                       </a>
                     </div>
-					   <div class="contact-item mb-3">
-                      <a href="#" class="contact-link d-flex align-items-center">
-                        <i class="fas fa-graduation-cap contact-icon"></i>
-                        <span class="ms-3 contact-text">İstanbul Üniversitesi<br>İş Sağlığı ve Güvenliği (AÖ) (2025-)</span>
-                      </a>
-                    </div>
+
                        <div class="contact-item mb-3">
                       <a href="https://www.youtube.com/@mavistanbul" class="contact-link d-flex align-items-center">
                         <i class="fab fa-youtube contact-icon"></i>
@@ -951,7 +806,7 @@
             </div>
 
             <!-- Sağ Profil Resmi -->
-            <div class="col-lg-6 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+            <div class="col-lg-5">
               <div class="card border-0 shadow-sm overflow-hidden h-100">
                 <div class="bg-gradient p-4" style="background-color: #849a90">
                   <img src="img/blogs/blogs2.png" alt="Profil" class="img-fluid rounded-3 shadow">
@@ -966,7 +821,7 @@
       <!-- Projeler Bölümü -->
       <section class="projects-section py-5 bg-white">
         <div class="container">
-          <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+          <div class="text-center mb-5 reveal">
             <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Projelerim</h2>
             <p class="lead text-muted">Geliştirdiğim Bazı Projeler</p>
           </div>
@@ -977,7 +832,7 @@
               
 
 				                                       <!-- Proje 1 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/sifredefteri.png" class="card-img-top" alt="Şifrelerim" style="width: 100%; height: 100%; object-fit: cover;">
@@ -996,7 +851,7 @@
               </div>
 			
 				                          <!-- Proje 2 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/satirarasi.jpg" class="card-img-top" alt="Ne Yesek" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1019,7 +874,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
 			
 			
 							                          <!-- Proje 3 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/neyesek.jpg" class="card-img-top" alt="Ne Yesek" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1038,7 +893,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </div>
 			
 			              <!-- Proje 4 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/github.png" class="card-img-top" alt="Github Projelerim" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1054,7 +909,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </div>
 			
 		            <!-- Proje 5 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/tesisathanem.png" class="card-img-top" alt="İşletme Tanıtım Sitesi" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1074,7 +929,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
     
 
               <!-- Proje 6 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/meydantantuni.png" class="card-img-top" alt="İşletme Tanıtım Sitesi" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1093,7 +948,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </div>
     
 			               <!-- Proje 7 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/digitalgunluk.jpg" class="card-img-top" alt="Dijital Psikoloğum" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1117,7 +972,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </div>
 
               <!-- Proje 8 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/vistopia.jpg" class="card-img-top" alt="Vistopia" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1139,7 +994,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </div>
 
                             <!-- Proje 9 -->
-              <div class="swiper-slide proje-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide proje-card">
                 <div class="card h-100">
                   <div class="card-img-container" style="height: 200px; overflow: hidden;">
                     <img src="img/homepage/crypto.jpg" class="card-img-top" alt="cryptotrade" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1201,7 +1056,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
       <!-- PDF Bölümü -->
       <section class="pdf-section py-5 bg-white">
         <div class="container">
-          <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+          <div class="text-center mb-5 reveal">
             <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">PDF Dokümanlarım</h2>
             <p class="lead text-muted">Yazılım,fotoğrafçılık ve diğer konularda bilgi alabileceğiniz dökümanlarım.</p>
           </div>
@@ -1211,7 +1066,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
             <div class="swiper-wrapper">
 
               <!-- PDF 1 -->
-              <div class="swiper-slide pdf-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+              <div class="swiper-slide pdf-card">
                 <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
                   <div class="pdf-icon mb-3">
                     <i class="fas fa-file-pdf fa-5x" style="color: #d32f2f;"></i>
@@ -1224,7 +1079,20 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                   </div>
                 </div>
               </div>
-
+			         <!-- dwg -->
+              <div class="swiper-slide pdf-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
+                  <div class="book-icon mb-3">
+    <i class="fas fa-pen-ruler fa-5x" style="color: #d32f2f;"></i>
+</div>
+                      <h5 class="card-title fw-bold">Lüx Konak - Çiftlik AutoCad</h5>
+                  <p class="card-text text-muted">AutoCad ile evin ve ahırın genel elektrik şeması çizimi, iç dizaynı</p>
+                  <div class="d-flex justify-content-center gap-3 mt-4">
+                    
+                    <a href="docs/konak.dwg" download class="btn btn-outline-dark">İndir</a>
+                  </div>
+                </div>
+              </div>
         
 
             </div>
@@ -1254,16 +1122,20 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
 
 
       <!-- Yetkinlikler Bölümü -->
-      <section class="skills-section py-5 bg-light">
+      <section class="skills-section py-5 bg-light" style="position:relative;overflow:hidden;">
+        <!-- Floating icons -->
+        <div class="floating-icon fi-1" style="top:20%;right:8%;"><i class="fas fa-laptop-code"></i></div>
+        <div class="floating-icon fi-3" style="bottom:25%;left:5%;"><i class="fas fa-plug"></i></div>
+        <div class="floating-icon fi-5" style="top:60%;left:45%;"><i class="fas fa-tree"></i></div>
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+              <div class="text-center mb-5 reveal">
                 <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Uzmanlık Alanları</h2>
                 <p class="lead text-muted">Yazılım ve Diğer Konularda Bilgi Düzeyim</p>
               </div>
 
-              <div class="skills-container wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+              <div class="skills-container">
                 <!-- CAPCUT -->
                 <div class="skill-item mb-4">
                   <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1355,73 +1227,190 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
       </section>
 
       <!-- İş Deneyimi Bölümü -->
-      <section class="experience-section py-5">
-        <div class="container">
+      <section class="experience-section py-5" style="position:relative;overflow:hidden;">
+        <div class="floating-icon fi-2" style="top:15%;right:10%;"><i class="fas fa-briefcase"></i></div>
+        <div class="floating-icon fi-4" style="bottom:20%;left:8%;"><i class="fas fa-hard-hat"></i></div>
+        <div class="container" style="position:relative;z-index:1;">
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+              <div class="text-center mb-5 reveal">
                 <h2 class="display-4 fw-bold mb-4">İş Deneyimi</h2>
               </div>
 
-              <div class="timeline clearfix">
-                <!-- Sol -->
-                <div class="timeline-item left">
-                  <div class="timeline-content">
-                    <h5 class="fw-bold text-success">2025 - 2025 </h5>
-                    <h6 class="fw-bold">İntegra Sistem Teknolojileri Ltd. Şti.</h6>
-                    <p class="fst-italic fs-6">Mobil Uygulama Geliştirme</p>
-                    <p class="fs-6">
-                      Mobil Uygulama Geliştirici
-                    </p>
+              <div class="exp-grid">
+                <!-- Yeni İş -->
+                <div class="exp-card">
+                  <div class="exp-icon"><i class="fas fa-bolt"></i></div>
+                  <div class="exp-body">
+                    <span class="exp-date">2026 -</span>
+                    <h5 class="fw-bold">Akt Elektrik Mek. San. ve Tic. A.Ş</h5>
+                    <p class="exp-role">Elektrik Teknisyeni</p>
+                    <p class="exp-desc">Elektrikçi</p>
                   </div>
                 </div>
 
-                <!-- Sağ -->
-                <div class="timeline-item right my-5">
-                  <div class="timeline-content">
-                    <h5 class="fw-bold text-success">2024 -</h5>
-                    <h6 class="fw-bold">Dilruba</h6>
-                    <p class="fst-italic fs-6">Garsonluk</p>
-                    <p class="fs-6">Part Time hizmet sektörü</p>
+                <!-- İntegra -->
+                <div class="exp-card">
+                  <div class="exp-icon"><i class="fas fa-mobile-alt"></i></div>
+                  <div class="exp-body">
+                    <span class="exp-date">2025 - 2025</span>
+                    <h5 class="fw-bold">İntegra Sistem Teknolojileri Ltd. Şti.</h5>
+                    <p class="exp-role">Mobil Uygulama Geliştirme</p>
+                    <p class="exp-desc">Mobil Uygulama Geliştirici</p>
                   </div>
                 </div>
 
-                <!-- Sol -->
-                <div class="timeline-item left">
-                  <div class="timeline-content">
-                    <h5 class="fw-bold text-success">2023 - 2024</h5>
-                    <h6 class="fw-bold">Bim A.Ş</h6>
-                    <p class="fst-italic fs-6">Kasiyerlik</p>
-                    <p class="fs-6">Market elemanı ve genel işleyiş</p>
+                <!-- Dilruba -->
+                <div class="exp-card">
+                  <div class="exp-icon"><i class="fas fa-utensils"></i></div>
+                  <div class="exp-body">
+                    <span class="exp-date">2024 -</span>
+                    <h5 class="fw-bold">Dilruba</h5>
+                    <p class="exp-role">Garsonluk</p>
+                    <p class="exp-desc">Part Time hizmet sektörü</p>
                   </div>
                 </div>
 
-                <!-- Sağ -->
-                <div class="timeline-item right my-5">
-                  <div class="timeline-content">
-                    <h5 class="fw-bold text-success">2021 - 2023</h5>
-                    <h6 class="fw-bold">İSS & YGT</h6>
-                    <p class="fst-italic fs-6">Temizlik Personeli</p>
-                    <p class="fs-6">Part Time Genel Temizlik</p>
+                <!-- Bim -->
+                <div class="exp-card">
+                  <div class="exp-icon"><i class="fas fa-store"></i></div>
+                  <div class="exp-body">
+                    <span class="exp-date">2023 - 2024</span>
+                    <h5 class="fw-bold">Bim A.Ş</h5>
+                    <p class="exp-role">Kasiyerlik</p>
+                    <p class="exp-desc">Market elemanı ve genel işleyiş</p>
+                  </div>
+                </div>
+
+                <!-- İSS & YGT -->
+                <div class="exp-card">
+                  <div class="exp-icon"><i class="fas fa-broom"></i></div>
+                  <div class="exp-body">
+                    <span class="exp-date">2021 - 2023</span>
+                    <h5 class="fw-bold">İSS & YGT</h5>
+                    <p class="exp-role">Temizlik Personeli</p>
+                    <p class="exp-desc">Part Time Genel Temizlik</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <style>
+          .exp-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+          .exp-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: white;
+            border-radius: 16px;
+            padding: 20px 24px;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(to bottom, #175a2e, #99c1b9) 1;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+          }
+          .exp-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+          }
+          .exp-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #175a2e;
+          }
+          .exp-body {
+            flex: 1;
+          }
+          .exp-date {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #175a2e;
+            background: rgba(23,90,46,0.08);
+            padding: 2px 10px;
+            border-radius: 50px;
+            margin-bottom: 6px;
+          }
+          .exp-body h5 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+            color: #1a1a1a;
+          }
+          .exp-role {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2px;
+          }
+          .exp-desc {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0;
+          }
+          @media (max-width: 480px) {
+            .exp-card {
+              padding: 14px 16px;
+              gap: 12px;
+            }
+            .exp-icon {
+              width: 36px;
+              height: 36px;
+              min-width: 36px;
+              font-size: 0.9rem;
+            }
+            .exp-body h5 { font-size: 0.9rem; }
+          }
+        </style>
       </section>
 
       <!-- Kullandığım Yazılımlar Bölümü -->
-      <section class="tools-section py-5 bg-light">
+      <section class="tools-section py-5 bg-light" style="position:relative;overflow:hidden;">
+        <!-- Floating icons -->
+        <div class="floating-icon fi-1" style="top:18%;right:10%;"><i class="fas fa-sun"></i></div>
+        <div class="floating-icon fi-4" style="bottom:20%;left:8%;"><i class="fas fa-wrench"></i></div>
+        <div class="floating-icon fi-2" style="top:55%;left:45%;"><i class="fas fa-camera-retro"></i></div>
         <div class="container">
-          <div class="text-center mb-5 wow animate__fadeInUp" data-wow-duration="1s">
+          <div class="text-center mb-5 reveal">
             <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Kullandığım Yazılımlar</h2>
             <p class="lead text-muted">Geliştirme ve Tasarım Süreçlerimde Kullandığım Araçlar</p>
           </div>
 
           <div class="row justify-content-center align-items-center text-center">
+             <!-- Gemini -->
+             <div class="col-6 col-md-3 col-lg-2 mb-4">
+              <a href="https://www.google.com/gemini" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/gemini.png" class="img-fluid w-50 hover-effect mb-3" alt="Gemini">
+                  <h6 class="text-dark fw-bold">Gemini</h6>
+                </div>
+              </a>
+            </div>
+
+            <!-- NotebookLM -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+              <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                <div class="tool-item">
+                  <img src="img/homepage/notebooklm.png" class="img-fluid w-50 hover-effect mb-3" alt="NotebookLM">
+                  <h6 class="text-dark fw-bold">NotebookLM</h6>
+                </div>
+              </a>
+            </div>
+
             <!-- ChatGPT -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://chat.openai.com/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/chat-gbt.png" class="img-fluid w-50 hover-effect mb-3" alt="ChatGPT">
@@ -1430,17 +1419,18 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </a>
             </div>
 
-             <!-- Gemini -->
-             <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-              <a href="https://www.google.com/gemini" target="_blank" class="text-decoration-none">
+            <!-- Canva -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+              <a href="https://www.canva.com/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
-                  <img src="img/homepage/gemini.png" class="img-fluid w-50 hover-effect mb-3" alt="Gemini">
-                  <h6 class="text-dark fw-bold">Gemini</h6>
+                  <img src="img/homepage/canva.png" class="img-fluid w-50 hover-effect mb-3" alt="Canva">
+                  <h6 class="text-dark fw-bold">Canva</h6>
                 </div>
               </a>
             </div>
+
                  <!-- Elevanlabs -->
-             <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+             <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://elevenlabs.io/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/elevanlabs.png" class="img-fluid w-50 hover-effect mb-3" alt="Elevanlabs">
@@ -1449,7 +1439,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </a>
             </div>
             <!-- Cursor IDE -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://www.cursor.com/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/cursoride.png" class="img-fluid w-50 hover-effect mb-3" alt="Cursor IDE">
@@ -1459,7 +1449,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
             </div>
 
             <!-- Leonardo.ai -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.7s">
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://leonardo.ai/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/leonardo.jpg" class="img-fluid w-50 hover-effect mb-3" alt="Leonardo.ai">
@@ -1468,18 +1458,8 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
               </a>
             </div>
 
-            <!-- Canva -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
-              <a href="https://www.canva.com/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/canva.png" class="img-fluid w-50 hover-effect mb-3" alt="Canva">
-                  <h6 class="text-dark fw-bold">Canva</h6>
-                </div>
-              </a>
-            </div>
-
             <!-- Claude AI -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://claude.ai/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/claude.png" class=" img-fluid w-50 hover-effect mb-3" alt="Claude AI">
@@ -1490,7 +1470,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
 
            
             <!-- Gamma -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://gamma.app/" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/gamma.png" class="img-fluid w-50 hover-effect mb-3" alt="Gamma">
@@ -1500,7 +1480,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
             </div>
 
             <!-- Bing Image Creator -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
               <a href="https://www.bing.com/create" target="_blank" class="text-decoration-none">
                 <div class="tool-item">
                   <img src="img/homepage/bing.png" class="img-fluid w-50 hover-effect mb-3" alt="Bing Image Creator">
@@ -1513,91 +1493,64 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
           </div>
 
           <style>
-            .hover-effect {
-              transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-              filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.05));
-              transform-origin: center;
-            }
-            
-            .hover-effect:hover {
-              transform: translateY(-10px) rotate(5deg) scale(1.1);
-              filter: drop-shadow(0 15px 20px rgba(23, 90, 46, 0.2));
-            }
-            
             .tool-item {
-              padding: 20px;
-              border-radius: 15px;
-              transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-              position: relative;
-              overflow: hidden;
-              z-index: 1;
-              background-color: white;
-              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-              border: 1px solid rgba(23, 90, 46, 0.05);
+              padding: 16px 10px;
+              border-radius: 14px;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              background: white;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+              border: 1px solid rgba(0,0,0,0.04);
+              height: 120px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
             }
-            
-            .tool-item::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 0;
-              height: 100%;
-              background: linear-gradient(90deg, rgba(23, 90, 46, 0.05), transparent);
-              transition: all 0.5s ease;
-              z-index: -1;
-            }
-            
             .tool-item:hover {
-              transform: translateY(-15px) scale(1.03);
-              box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+              transform: translateY(-5px);
+              box-shadow: 0 10px 24px rgba(0,0,0,0.08);
             }
-            
-            .tool-item:hover::before {
-              width: 100%;
+            .tool-item img {
+              max-width: 45px !important;
+              width: auto !important;
             }
-            
             .tool-item h6 {
-              transition: all 0.3s ease;
-              position: relative;
-              display: inline-block;
               color: #333;
+              margin-top: 4px;
+              font-size: 0.75rem;
+              transition: color 0.3s ease;
             }
-            
-            .tool-item h6::after {
-              content: '';
-              position: absolute;
-              bottom: -3px;
-              left: 50%;
-              width: 0;
-              height: 2px;
-              background: linear-gradient(90deg, #175a2e, #99c1b9);
-              transition: all 0.3s ease;
-              transform: translateX(-50%);
-            }
-            
             .tool-item:hover h6 {
               color: #175a2e;
-              font-weight: 700 !important;
-              transform: scale(1.1);
             }
-            
-            .tool-item:hover h6::after {
-              width: 80%;
+            .hover-effect {
+              transition: transform 0.3s ease;
             }
-            
-            @keyframes float {
-              0% { transform: translateY(0px); }
-              50% { transform: translateY(-10px); }
-              100% { transform: translateY(0px); }
+            .hover-effect:hover {
+              transform: scale(1.08);
             }
-            
-            .tools-section .col-6:nth-child(even) .hover-effect {
-              animation: float 5s ease-in-out infinite;
+            @media (max-width: 768px) {
+              .tool-item {
+                padding: 12px 8px;
+                border-radius: 12px;
+              }
+              .tool-item img {
+                max-width: 36px !important;
+              }
+              .tool-item h6 {
+                font-size: 0.65rem;
+              }
             }
-            
-            .tools-section .col-6:nth-child(odd) .hover-effect {
-              animation: float 6s ease-in-out infinite 1s;
+            @media (max-width: 480px) {
+              .tool-item {
+                padding: 10px 6px;
+              }
+              .tool-item img {
+                max-width: 30px !important;
+              }
+              .tool-item h6 {
+                font-size: 0.6rem;
+              }
             }
           </style>
         </div>
@@ -1628,71 +1581,43 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
           </footer>
 
     <script>
-      // Progress bar scroll animasyonu
       document.addEventListener('DOMContentLoaded', function() {
-        // Progress Bar Animasyonu
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const progressBar = entry.target;
-              const targetWidth = progressBar.getAttribute('aria-valuenow') + '%';
-              
-              // Animasyonu başlat
-              setTimeout(() => {
-                progressBar.style.width = targetWidth;
-              }, 100);
-              
-              observer.unobserve(progressBar); // Animasyon tamamlandıktan sonra gözlemeyi durdur
-            }
-          });
-        }, {
-          threshold: 0.15, // Elementin %15'i görünür olduğunda tetiklenir
-          rootMargin: '0px 0px -10% 0px' // Sayfanın alt kısmına daha yakın olmasını gerektirir
+        // Navbar scroll opacity
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+          navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-          bar.style.width = '0'; // Başlangıçta 0
-          bar.style.transition = 'width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1)'; // Daha akıcı bir transition
-          observer.observe(bar);
-        });
-        
-        // Timeline animasyonları
-        const animateItems = document.querySelectorAll('.timeline-item');
-        const animateObserver = new IntersectionObserver((entries) => {
+        // Progress Bar scroll animasyonu
+        const progressObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('animate__animated');
-              
-              if (entry.target.classList.contains('left')) {
-                entry.target.classList.add('animate__fadeInLeft');
-              } else {
-                entry.target.classList.add('animate__fadeInRight');
-              }
-              
-              animateObserver.unobserve(entry.target);
+              const bar = entry.target;
+              setTimeout(() => {
+                bar.style.width = bar.getAttribute('aria-valuenow') + '%';
+              }, 100);
+              progressObserver.unobserve(bar);
             }
           });
-        }, {
-          threshold: 0.2,
-          rootMargin: '-50px'
+        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+          bar.style.width = '0';
+          progressObserver.observe(bar);
         });
-        
-        animateItems.forEach(item => {
-          animateObserver.observe(item);
-        });
-        
-        // Contact item hover efektleri
-        const contactLinks = document.querySelectorAll('.contact-link');
-        contactLinks.forEach(link => {
-          link.addEventListener('mouseenter', function() {
-            this.classList.add('animate__animated', 'animate__pulse');
+
+        // Reveal animasyonu (CSS-only, sadece bölüm başlıkları)
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
           });
-          
-          link.addEventListener('mouseleave', function() {
-            setTimeout(() => {
-              this.classList.remove('animate__animated', 'animate__pulse');
-            }, 500);
-          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+          revealObserver.observe(el);
         });
       });
     </script>
