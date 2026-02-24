@@ -41,7 +41,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/header.css" />
 
@@ -51,128 +51,94 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <style>
-      /* Modern Header Stilleri */
+      /* ===== NAVBAR ===== */
       .navbar {
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        padding: 0;
-        margin: 15px 20px;
-      }
-      
-      .navbar:hover {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transform: translateY(-3px);
-      }
-      
-      .modern-nav {
-        padding: 15px;
-      }
-      
-      .modern-container {
-        padding: 0 20px;
-      }
-      
-      .nav-logo {
-        height: 4.5rem;
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-      
-      .nav-logo:hover {
-        transform: rotate(5deg) scale(1.1);
-        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-      }
-      
-      .modern-menu {
-        display: flex;
-        gap: 15px;
-      }
-      
-      .modern-link {
-        position: relative;
-        padding: 12px 20px;
-        border-radius: 10px;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 50px;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        padding: 8px 20px;
+        margin: 12px auto;
+        max-width: 500px;
         transition: all 0.4s ease;
-        overflow: hidden;
-        z-index: 1;
-        font-weight: 500;
-        color: #333 !important;
+      }
+      .navbar.scrolled {
+        background: rgba(255,255,255,0.92);
+        box-shadow: 0 4px 28px rgba(0,0,0,0.08);
+      }
+      .nav-inner {
         display: flex;
         align-items: center;
-        gap: 8px;
-      }
-      
-      .modern-link::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        justify-content: space-between;
         width: 100%;
-        height: 0;
-        background: linear-gradient(to top, rgba(153, 193, 185, 0.2), transparent);
-        transition: all 0.4s ease;
-        z-index: -1;
-        border-radius: 10px;
       }
-      
-      .modern-link:hover {
-        color: #175a2e !important;
-        transform: translateY(-5px);
-        font-weight: 600 !important;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
       }
-      
-      .modern-link:hover::before {
-        height: 100%;
+      .nav-logo {
+        height: 60px;
+        transition: transform 0.3s ease;
       }
-      
-      .modern-link.active {
-        color: #175a2e !important;
-        font-weight: 700 !important;
-        background-color: rgba(153, 193, 185, 0.1);
+      .nav-logo:hover {
+        transform: scale(1.08);
       }
-      
-      .modern-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: 5px;
-        left: 50%;
-        width: 40%;
-        height: 3px;
-        background: linear-gradient(90deg, #175a2e, #99c1b9);
-        transform: translateX(-50%);
-        border-radius: 10px;
+      .nav-brand-text {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        background: linear-gradient(135deg, #175a2e, #2d8a4e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-      
-      .nav-icon {
-        font-size: 1.2rem;
+      .nav-links {
+        display: flex;
+        gap: 6px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-pill {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #555;
+        text-decoration: none;
         transition: all 0.3s ease;
       }
-      
-      .modern-link:hover .nav-icon {
-        transform: scale(1.2);
+      .nav-pill:hover {
+        background: rgba(23,90,46,0.08);
         color: #175a2e;
       }
-      
+      .nav-pill.active {
+        background: rgba(23,90,46,0.1);
+        color: #175a2e;
+      }
+      .nav-pill i {
+        font-size: 0.9rem;
+      }
       @media (max-width: 768px) {
-        .modern-menu {
-          gap: 5px;
+        .navbar {
+          max-width: 320px;
+          padding: 6px 14px;
+          margin: 8px auto;
         }
-        
-        .modern-link {
-          padding: 8px;
-          font-size: 0.8rem !important;
-        }
-        
-        .modern-link .nav-icon {
-          margin-right: 2px;
-          font-size: 0.9rem;
-        }
-        
-        .nav-logo {
-          height: 3rem;
-        }
+        .nav-logo { height: 28px; }
+        .nav-brand-text { font-size: 0.9rem; }
+        .nav-pill { padding: 5px 10px; font-size: 0.75rem; }
+        .nav-pill span { display: none; }
+      }
+      @media (max-width: 480px) {
+        .navbar { max-width: 260px; }
+        .nav-brand-text { display: none; }
       }
 
       /* Footer hover efektleri */
@@ -183,12 +149,6 @@
       footer a:hover .fa-lg {
         transform: translateY(-5px) scale(1.2);
         text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-      }
-      
-      /* Header alt çizgisi */
-      .header-blog {
-        position: relative;
-        border-bottom: none !important;
       }
       
       /* Footer için ek stiller */
@@ -211,17 +171,9 @@
       }
 
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: 'Inter', sans-serif;
         background: linear-gradient(135deg, #f8f9fa, #e9ecef);
         overflow-x: hidden;
-        padding-top: 0; /* Header fixed olmadığı için padding gerekmez */
-      }
-
-      /* Header position düzeltmesi */
-      header {
-        position: relative !important; /* Fixed pozisyonunu override et */
-        width: 100%;
-        z-index: 10;
       }
 
       .privacy-container {
@@ -466,22 +418,15 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-light modern-nav">
-        <div class="container modern-container">
-          <a href="../blogs.html" class="navbar-brand a-img">
+      <nav class="navbar">
+        <div class="nav-inner">
+          <a href="../index.html" class="nav-brand">
             <img src="../img/favicon.png" alt="logo" class="nav-logo" />
+            <span class="nav-brand-text">Dengnekir</span>
           </a>
-          
-          <div class="navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto modern-menu">
-              <li class="nav-item">
-                <a href="../blogs.html" class="nav-link fs-6 modern-link active">
-                  <i class="fas fa-home nav-icon"></i>
-                  <span>Home</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-pill active"><i class="fas fa-home"></i><span>Home</span></a></li>
+          </ul>
         </div>
       </nav>
     </header>
