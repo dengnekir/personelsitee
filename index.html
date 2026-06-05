@@ -605,111 +605,173 @@
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
     }
 
-    /* Proje kartları - yumuşak yeşil arka plan */
-    .proje-card .card {
-      background: linear-gradient(145deg, #f0faf3 0%, #e8f5e9 40%, #f5fdf7 100%);
-      border: 1px solid rgba(23, 90, 46, 0.06);
+    /* PDF/Doküman kartları - yumuşak arka plan */
+    .pdf-card .card {
+      background: linear-gradient(145deg, #f0f4fa 0%, #e3ecf5 40%, #f5f8fd 100%);
+      border: 1px solid rgba(30, 60, 92, 0.08);
       position: relative;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    .proje-card .card::before {
-      content: '\f121';
-      /* fa-code */
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      font-size: 1.4rem;
-      color: rgba(23, 90, 46, 0.06);
-      z-index: 1;
-      pointer-events: none;
-      transition: all 0.4s ease;
-    }
-
-    .proje-card .card::after {
-      content: '\f3cd';
-      /* fa-laptop-code */
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      position: absolute;
-      bottom: 14px;
-      left: 16px;
-      font-size: 2rem;
-      color: rgba(23, 90, 46, 0.04);
-      z-index: 0;
-      pointer-events: none;
-      transition: all 0.4s ease;
-    }
-
-    .proje-card .card:hover::before {
-      color: rgba(23, 90, 46, 0.12);
-      transform: rotate(10deg) scale(1.1);
-    }
-
-    .proje-card .card:hover::after {
-      color: rgba(23, 90, 46, 0.08);
-      transform: rotate(-5deg) scale(1.1);
-    }
-
-    .proje-card .card:hover {
-      background: linear-gradient(145deg, #e8f5e9 0%, #dcedc8 40%, #f0faf3 100%);
-    }
-
-    .proje-card .card-body {
+    .pdf-card .card-body {
       position: relative;
       z-index: 2;
     }
 
-    /* PDF/Doküman kartları - yumuşak mavi arka plan */
-    .pdf-card .card {
-      background: linear-gradient(145deg, #f0f4fa 0%, #e3ecf5 40%, #f5f8fd 100%) !important;
-      border-color: rgba(30, 60, 92, 0.15) !important;
+    /* ===== INTERACTIVE CARD HEADERS (NO-IMAGE) ===== */
+    .card-interactive-header {
+      height: 190px;
       position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    .pdf-card .card::before {
-      content: '\f0ad';
-      /* fa-wrench */
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
+    /* Grid background effect */
+    .card-interactive-header::before {
+      content: '';
       position: absolute;
-      top: 14px;
-      right: 16px;
-      font-size: 1.6rem;
-      color: rgba(30, 60, 92, 0.06);
-      z-index: 0;
-      pointer-events: none;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 15px 15px;
+      background-position: center;
+      opacity: 0.5;
+      transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    /* Hover effect on grid */
+    .pdf-card .card:hover .card-interactive-header::before {
+      transform: scale(1.2) rotate(3deg);
+      opacity: 0.75;
+    }
+
+    /* Content wrapper */
+    .card-interactive-header .header-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      width: 100%;
+      height: 100%;
       transition: all 0.4s ease;
     }
 
-    .pdf-card .card::after {
-      content: '\f1e6';
-      /* fa-plug */
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-      position: absolute;
-      bottom: 14px;
-      left: 16px;
-      font-size: 2.2rem;
-      color: rgba(30, 60, 92, 0.04);
-      z-index: 0;
-      pointer-events: none;
+    /* Main icon styling */
+    .card-interactive-header .header-icon {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: floatHeaderIcon 4s ease-in-out infinite;
+    }
+
+    @keyframes floatHeaderIcon {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Status Badge styling */
+    .card-interactive-header .status-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.25);
+      color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.4s ease;
     }
 
-    .pdf-card .card:hover::before {
-      color: rgba(30, 60, 92, 0.12);
-      transform: rotate(10deg) scale(1.1);
+    /* Card hover interactions */
+    .pdf-card .card:hover .card-interactive-header {
+      transform: scale(1.02);
     }
 
-    .pdf-card .card:hover::after {
-      color: rgba(30, 60, 92, 0.08);
-      transform: rotate(-5deg) scale(1.1);
+    .pdf-card .card:hover .header-icon {
+      animation: none;
+      transform: scale(1.25) translateY(-5px) rotate(8deg);
     }
 
-    .pdf-card .card:hover {
-      background: linear-gradient(145deg, #e3ecf5 0%, #d6e4f0 40%, #f0f4fa 100%) !important;
+    /* ===== DOCUMENT THEMES & DYNAMIC HOVERS ===== */
+
+    /* 1. Flutter PDF */
+    .header-flutter-pdf {
+      background: linear-gradient(135deg, #200a0a 0%, #3a1111 50%, #541818 100%);
+    }
+
+    .header-flutter-pdf .header-icon {
+      color: #e74c3c;
+    }
+
+    .card-flutter-pdf .card:hover {
+      box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2) !important;
+      border-color: rgba(231, 76, 60, 0.35) !important;
+      background: linear-gradient(145deg, #faf0f0 0%, #f7d5d5 100%) !important;
+    }
+
+    /* 2. AutoCad DWG */
+    .header-autocad-dwg {
+      background: linear-gradient(135deg, #241a05 0%, #3d2a09 50%, #563c0d 100%);
+    }
+
+    .header-autocad-dwg .header-icon {
+      color: #f1c40f;
+    }
+
+    .card-autocad-dwg .card:hover {
+      box-shadow: 0 15px 35px rgba(241, 196, 15, 0.2) !important;
+      border-color: rgba(241, 196, 15, 0.35) !important;
+      background: linear-gradient(145deg, #faf7ec 0%, #f7ecd5 100%) !important;
+    }
+
+    /* 3. GitHub */
+    .header-github {
+      background: linear-gradient(135deg, #130a1c 0%, #221133 50%, #32194a 100%);
+    }
+
+    .header-github .header-icon {
+      color: #9b59b6;
+    }
+
+    .card-github .card:hover {
+      box-shadow: 0 15px 35px rgba(155, 89, 182, 0.2) !important;
+      border-color: rgba(155, 89, 182, 0.35) !important;
+      background: linear-gradient(145deg, #f5f0fa 0%, #ecdcf7 100%) !important;
+    }
+
+    /* 4. Google Play Geliştirici */
+    .header-googleplay {
+      background: linear-gradient(135deg, #051624 0%, #0a2942 50%, #0e3d5e 100%);
+    }
+
+    .header-googleplay .header-icon {
+      color: #00cec9;
+    }
+
+    .card-googleplay .card:hover {
+      box-shadow: 0 15px 35px rgba(0, 206, 201, 0.2) !important;
+      border-color: rgba(0, 206, 201, 0.35) !important;
+      background: linear-gradient(145deg, #ecfaf9 0%, #d5f7f5 100%) !important;
     }
 
     .card-img-top {
@@ -1326,27 +1388,47 @@
           <!-- SAĞ: Portfolyo Toggle Kartları -->
           <div class="col-lg-4">
             <div class="d-flex flex-column gap-3">
-              <!-- Projelerim Toggle -->
-              <div class="portfolio-toggle-card toggle-projects" id="toggleProjects"
-                onclick="togglePortfolioPanel('projects')">
+              <!-- GitHub Projelerim Kartı -->
+              <a href="https://github.com/dengnekir" target="_blank"
+                class="portfolio-toggle-card toggle-projects text-decoration-none">
                 <!-- Floating arka plan ikonları -->
-                <i class="fas fa-laptop-code toggle-bg-icon tbi-1"></i>
-                <i class="fas fa-mobile-alt toggle-bg-icon tbi-2"></i>
-                <i class="fas fa-code toggle-bg-icon tbi-3"></i>
-                <i class="fas fa-robot toggle-bg-icon tbi-4"></i>
+                <i class="fab fa-github toggle-bg-icon tbi-1"></i>
+                <i class="fas fa-code-branch toggle-bg-icon tbi-2"></i>
+                <i class="fas fa-terminal toggle-bg-icon tbi-3"></i>
+                <i class="fas fa-code toggle-bg-icon tbi-4"></i>
                 <div class="toggle-card-glow"></div>
                 <div class="toggle-card-content">
                   <div class="toggle-icon-wrap">
-                    <i class="fas fa-code"></i>
-                    <span class="toggle-icon-badge">9</span>
+                    <i class="fab fa-github"></i>
                   </div>
-                  <h3 class="toggle-title">Projelerim</h3>
-                  <p class="toggle-desc">Mobil, web ve AI projeleri</p>
+                  <h3 class="toggle-title">GitHub Projelerim</h3>
+                  <p class="toggle-desc">Açık kaynak kodlu tüm projelerim</p>
                   <div class="toggle-arrow">
-                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-external-link-alt"></i>
                   </div>
                 </div>
-              </div>
+              </a>
+
+              <!-- Google Play Geliştirici Hesabı Kartı -->
+              <a href="https://play.google.com/store/apps/dev?id=8420494504341897366&hl=tr" target="_blank"
+                class="portfolio-toggle-card toggle-play text-decoration-none">
+                <!-- Floating arka plan ikonları -->
+                <i class="fab fa-google-play toggle-bg-icon tbi-1"></i>
+                <i class="fas fa-mobile-alt toggle-bg-icon tbi-2"></i>
+                <i class="fas fa-gamepad toggle-bg-icon tbi-3"></i>
+                <i class="fas fa-rocket toggle-bg-icon tbi-4"></i>
+                <div class="toggle-card-glow"></div>
+                <div class="toggle-card-content">
+                  <div class="toggle-icon-wrap">
+                    <i class="fab fa-google-play"></i>
+                  </div>
+                  <h3 class="toggle-title">Google Play Hesabım</h3>
+                  <p class="toggle-desc">Yayınladığım mobil uygulamalar</p>
+                  <div class="toggle-arrow">
+                    <i class="fas fa-external-link-alt"></i>
+                  </div>
+                </div>
+              </a>
 
               <!-- PDF Dokümanlarım Toggle -->
               <div class="portfolio-toggle-card toggle-docs" id="toggleDocs" onclick="togglePortfolioPanel('docs')">
@@ -1373,201 +1455,6 @@
         </div>
 
         <!-- Açılır Paneller (Full-width, row'un altında) -->
-        <!-- Projeler Panel -->
-        <div class="portfolio-panel" id="panelProjects">
-          <div class="panel-inner">
-            <div class="swiper projectSwiper">
-              <div class="swiper-wrapper">
-
-                <!-- Proje 1 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/sifredefteri.png" class="card-img-top" alt="Şifrelerim"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Şifre Defteri</h5>
-                      <p class="card-text">Şifreleri kaybetmeden saklamanın en kolay ve düzenli yolu.</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://play.google.com/store/apps/details?id=com.dengnekir.sifrelerim&hl=tr" download
-                          class="btn btn-outline-dark">Google Play İle İndir</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 2 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/satirarasi.jpg" class="card-img-top" alt="Satır Arası"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Satır Arası</h5>
-                      <p class="card-text">🎯 Neden Satır Arası? Çünkü bazen sadece yazmak istersin.</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://play.google.com/store/apps/details?id=com.dengnekir.alintilar&hl=tr" download
-                          class="btn btn-outline-dark">Google Play İle İndir</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 3 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/neyesek.jpg" class="card-img-top" alt="Ne Yesek"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Ne Yesek</h5>
-                      <p class="card-text">Ne yesek uygulaması ile yemek paylaşabilir, mesajlaşabilir, ve
-                        takipleşebilirsiniz.</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://play.google.com/store/apps/details?id=com.dengnekir.onlyfood&hl=tr" download
-                          class="btn btn-outline-dark">Google Play İle İndir</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 4 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/github.png" class="card-img-top" alt="Github Projelerim"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Github Projelerim</h5>
-                      <p class="card-text">Daha fazla projelerim için GitHub sayfama göz atın</p>
-                      <div class="mt-auto d-flex justify-content-between">
-                        <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark">Projeleri
-                          Gör</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 5 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/tesisathanem.png" class="card-img-top" alt="Tesisathanem"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Tesisathanem</h5>
-                      <p class="card-text">React ve TypeScript kullanılarak hazırlanan kişisel blog ve şirket tanıtım
-                        sitesi</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://dengnekir.com/tesisat/" target="_blank" class="btn btn-outline-dark">Projeyi
-                          Gör</a>
-                        <a href="https://github.com/dengnekir/tesisathanem" target="_blank" class="github-link">
-                          <i class="fab fa-github fa-3x"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 6 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/meydantantuni.png" class="card-img-top" alt="Meydan Tantuni"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Meydan Tantuni</h5>
-                      <p class="card-text">HTML - CSS ve Bootstrap kullanılarak hazırlanan küçük bir işletmenin tanıtım
-                        sitesi</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://dengnekir.github.io/Meydan-Tantuni/" target="_blank"
-                          class="btn btn-outline-dark">Projeyi Gör</a>
-                        <a href="https://github.com/dengnekir/Meydan-Tantuni" target="_blank" class="github-link">
-                          <i class="fab fa-github fa-3x"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 7 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/digitalgunluk.jpg" class="card-img-top" alt="Dijital Psikoloğum"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Dijital Psikoloğum</h5>
-                      <p class="card-text">Gemini api kullanılarak modlara göre kişiye psikolog, motivasyon koçu gibi
-                        rollere dönüşüp cevap veren AI asistanı.</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://github.com/dengnekir/digitalgunlukk" download
-                          class="btn btn-outline-dark">Projeyi Gör</a>
-                        <a href="https://github.com/dengnekir/digitalgunlukk" target="_blank" class="github-link">
-                          <i class="fab fa-github fa-3x"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 8 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/vistopia.jpg" class="card-img-top" alt="Vistopia"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Vistopia</h5>
-                      <p class="card-text">Flutter ile hazırlanan sosyal medya projem. Reels, resim ve yazı atılabilen
-                        kapsamlı bir platform.</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://github.com/dengnekir/vistopianew" download class="btn btn-outline-dark">Projeyi
-                          Gör</a>
-                        <a href="https://github.com/dengnekir/vistopianew" target="_blank" class="github-link">
-                          <i class="fab fa-github fa-3x"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Proje 9 -->
-                <div class="swiper-slide proje-card">
-                  <div class="card h-100">
-                    <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                      <img src="img/homepage/crypto.jpg" class="card-img-top" alt="Crypto Trade"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                      <h5 class="card-title fw-bold">Crypto Trade</h5>
-                      <p class="card-text">Yapay zeka ile kripto analizi yapan ve al sat tercihlerle kullanıcıya
-                        yardımcı olan AI coin asistan.</p>
-                      <div class="mt-auto d-flex justify-content-between align-items-center">
-                        <a href="https://github.com/dengnekir/cryptotrade" download class="btn btn-outline-dark">Projeyi
-                          Gör</a>
-                        <a href="https://github.com/dengnekir/cryptotrade" target="_blank" class="github-link">
-                          <i class="fab fa-github fa-3x"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="swiper-pagination swiper-pagination-projects"></div>
-            </div>
-          </div>
-        </div>
-
         <!-- Dokümanlar Panel -->
         <div class="portfolio-panel" id="panelDocs">
           <div class="panel-inner">
@@ -1575,31 +1462,42 @@
               <div class="swiper-wrapper">
 
                 <!-- PDF 1 -->
-                <div class="swiper-slide pdf-card">
-                  <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
-                    <div class="pdf-icon mb-3">
-                      <i class="fas fa-file-pdf fa-5x" style="color: #d32f2f;"></i>
+                <div class="swiper-slide pdf-card card-flutter-pdf">
+                  <div class="card h-100">
+                    <div class="card-interactive-header header-flutter-pdf">
+                      <div class="header-content">
+                        <i class="fas fa-file-pdf header-icon"></i>
+                        <span class="status-badge">PDF BELGESİ // E-KİTAP</span>
+                      </div>
                     </div>
-                    <h5 class="card-title fw-bold">Başlıklarla Orta Seviye Flutter</h5>
-                    <p class="card-text text-muted">Flutter hakkında bilinmesi gerek Mid seviyesi bilgiler</p>
-                    <div class="d-flex justify-content-center gap-3 mt-3">
-                      <a href="docs/pdf1.pdf" target="_blank" class="btn btn-outline-dark">Görüntüle</a>
-                      <a href="docs/pdf1.pdf" download class="btn btn-outline-dark">İndir</a>
+                    <div class="card-body d-flex flex-column text-center p-4">
+                      <h5 class="card-title fw-bold">Başlıklarla Orta Seviye Flutter</h5>
+                      <p class="card-text text-muted">Flutter hakkında bilinmesi gereken orta seviye (mid-level) teknik
+                        bilgiler.</p>
+                      <div class="mt-auto d-flex justify-content-center gap-3">
+                        <a href="docs/pdf1.pdf" target="_blank" class="btn btn-outline-dark">Görüntüle</a>
+                        <a href="docs/pdf1.pdf" download class="btn btn-outline-dark">İndir</a>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <!-- dwg -->
-                <div class="swiper-slide pdf-card">
-                  <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
-                    <div class="book-icon mb-3">
-                      <i class="fas fa-pen-ruler fa-5x" style="color: #d32f2f;"></i>
+                <div class="swiper-slide pdf-card card-autocad-dwg">
+                  <div class="card h-100">
+                    <div class="card-interactive-header header-autocad-dwg">
+                      <div class="header-content">
+                        <i class="fas fa-pen-ruler header-icon"></i>
+                        <span class="status-badge">CAD DOSYASI // PROJE</span>
+                      </div>
                     </div>
-                    <h5 class="card-title fw-bold">Lüx Konak - Çiftlik AutoCad</h5>
-                    <p class="card-text text-muted">AutoCad ile evin ve ahırın genel elektrik şeması çizimi, iç dizaynı
-                    </p>
-                    <div class="d-flex justify-content-center gap-3 mt-4">
-                      <a href="docs/konak.dwg" download class="btn btn-outline-dark">İndir</a>
+                    <div class="card-body d-flex flex-column text-center p-4">
+                      <h5 class="card-title fw-bold">Lüx Konak - Çiftlik AutoCad</h5>
+                      <p class="card-text text-muted">AutoCad ile çizilen konut ve çiftlik alanlarının genel elektrik
+                        şeması ve iç tesisat şablonu.</p>
+                      <div class="mt-auto d-flex justify-content-center">
+                        <a href="docs/konak.dwg" download class="btn btn-outline-dark">İndir</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1635,6 +1533,11 @@
         /* Dokümanlarım kartı - elektrik temalı gradient */
         .toggle-docs {
           background: linear-gradient(135deg, #1a2a3a 0%, #1e3c5c 50%, #2d5a8a 100%);
+        }
+
+        /* Google Play kartı - market temalı gradient */
+        .toggle-play {
+          background: linear-gradient(135deg, #0b2535 0%, #113d58 50%, #17557b 100%);
         }
 
         .portfolio-toggle-card:hover {
@@ -1789,6 +1692,10 @@
           background: linear-gradient(135deg, #4a90d9, #6bb5ff);
         }
 
+        .toggle-play .toggle-icon-wrap {
+          background: linear-gradient(135deg, #00cec9, #0984e3);
+        }
+
         .portfolio-toggle-card.active .toggle-icon-wrap {
           background: linear-gradient(135deg, #fff, #e0e0e0);
           color: #175a2e;
@@ -1937,29 +1844,14 @@
 
       <!-- Portfolio Toggle + Swiper Script -->
       <script>
-        let projectSwiperInstance = null;
-        let pdfSwiperInstance = null;
+        const swipers = {};
 
-        function initProjectSwiper() {
-          if (projectSwiperInstance) { projectSwiperInstance.update(); return; }
-          projectSwiperInstance = new Swiper(".projectSwiper", {
+        function initSwiper(selector, pagination) {
+          if (swipers[selector]) { swipers[selector].update(); return; }
+          swipers[selector] = new Swiper(selector, {
             slidesPerView: 1,
             spaceBetween: 20,
-            pagination: { el: ".swiper-pagination-projects", clickable: true },
-            breakpoints: {
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              992: { slidesPerView: 3, spaceBetween: 30 },
-              1200: { slidesPerView: 4, spaceBetween: 30 },
-            },
-          });
-        }
-
-        function initPdfSwiper() {
-          if (pdfSwiperInstance) { pdfSwiperInstance.update(); return; }
-          pdfSwiperInstance = new Swiper(".pdfSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: { el: ".swiper-pagination-docs", clickable: true },
+            pagination: { el: pagination, clickable: true },
             breakpoints: {
               640: { slidesPerView: 2, spaceBetween: 20 },
               992: { slidesPerView: 3, spaceBetween: 30 },
@@ -1969,34 +1861,20 @@
         }
 
         function togglePortfolioPanel(type) {
-          const projectPanel = document.getElementById('panelProjects');
           const docsPanel = document.getElementById('panelDocs');
-          const toggleProjects = document.getElementById('toggleProjects');
           const toggleDocs = document.getElementById('toggleDocs');
 
-          if (type === 'projects') {
-            const isOpen = projectPanel.classList.contains('open');
-            docsPanel.classList.remove('open');
-            toggleDocs.classList.remove('active');
-            if (isOpen) {
-              projectPanel.classList.remove('open');
-              toggleProjects.classList.remove('active');
-            } else {
-              projectPanel.classList.add('open');
-              toggleProjects.classList.add('active');
-              setTimeout(() => { initProjectSwiper(); }, 400);
-            }
-          } else {
+          if (type === 'docs') {
             const isOpen = docsPanel.classList.contains('open');
-            projectPanel.classList.remove('open');
-            toggleProjects.classList.remove('active');
             if (isOpen) {
               docsPanel.classList.remove('open');
               toggleDocs.classList.remove('active');
             } else {
               docsPanel.classList.add('open');
               toggleDocs.classList.add('active');
-              setTimeout(() => { initPdfSwiper(); }, 400);
+              setTimeout(() => {
+                initSwiper('.pdfSwiper', '.swiper-pagination-docs');
+              }, 400);
             }
           }
         }
