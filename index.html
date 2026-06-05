@@ -440,7 +440,6 @@
         width: 100%;
       }
 
-      /* ===== KARTLAR ===== */
       .card {
         border: none;
         border-radius: 16px;
@@ -451,6 +450,98 @@
       .card:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      }
+
+      /* Proje kartları - yumuşak yeşil arka plan */
+      .proje-card .card {
+        background: linear-gradient(145deg, #f0faf3 0%, #e8f5e9 40%, #f5fdf7 100%);
+        border: 1px solid rgba(23, 90, 46, 0.06);
+        position: relative;
+      }
+      .proje-card .card::before {
+        content: '\f121'; /* fa-code */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        font-size: 1.4rem;
+        color: rgba(23, 90, 46, 0.06);
+        z-index: 1;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+      .proje-card .card::after {
+        content: '\f3cd'; /* fa-laptop-code */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        bottom: 14px;
+        left: 16px;
+        font-size: 2rem;
+        color: rgba(23, 90, 46, 0.04);
+        z-index: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+      .proje-card .card:hover::before {
+        color: rgba(23, 90, 46, 0.12);
+        transform: rotate(10deg) scale(1.1);
+      }
+      .proje-card .card:hover::after {
+        color: rgba(23, 90, 46, 0.08);
+        transform: rotate(-5deg) scale(1.1);
+      }
+      .proje-card .card:hover {
+        background: linear-gradient(145deg, #e8f5e9 0%, #dcedc8 40%, #f0faf3 100%);
+      }
+      .proje-card .card-body {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* PDF/Doküman kartları - yumuşak mavi arka plan */
+      .pdf-card .card {
+        background: linear-gradient(145deg, #f0f4fa 0%, #e3ecf5 40%, #f5f8fd 100%) !important;
+        border-color: rgba(30, 60, 92, 0.15) !important;
+        position: relative;
+      }
+      .pdf-card .card::before {
+        content: '\f0ad'; /* fa-wrench */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        font-size: 1.6rem;
+        color: rgba(30, 60, 92, 0.06);
+        z-index: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+      .pdf-card .card::after {
+        content: '\f1e6'; /* fa-plug */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        bottom: 14px;
+        left: 16px;
+        font-size: 2.2rem;
+        color: rgba(30, 60, 92, 0.04);
+        z-index: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+      .pdf-card .card:hover::before {
+        color: rgba(30, 60, 92, 0.12);
+        transform: rotate(10deg) scale(1.1);
+      }
+      .pdf-card .card:hover::after {
+        color: rgba(30, 60, 92, 0.08);
+        transform: rotate(-5deg) scale(1.1);
+      }
+      .pdf-card .card:hover {
+        background: linear-gradient(145deg, #e3ecf5 0%, #d6e4f0 40%, #f0f4fa 100%) !important;
       }
       .card-img-top {
         transition: transform 0.4s ease;
@@ -864,323 +955,22 @@
       </section>
 
 
-      <!-- Projeler Bölümü -->
-      <section class="projects-section py-5 bg-white">
-        <div class="container">
-          <div class="text-center mb-5 reveal">
-            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Projelerim</h2>
-            <p class="lead text-muted">Geliştirdiğim Bazı Projeler</p>
-          </div>
-          
-          <!-- Swiper Container -->
-          <div class="swiper projectSwiper">
-            <div class="swiper-wrapper">
-              
-
-				                                       <!-- Proje 1 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/sifredefteri.png" class="card-img-top" alt="Şifrelerim" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Şifre Defteri</h5>
-                    <p class="card-text">Şifreleri kaybetmeden saklamanın en kolay ve düzenli yolu.</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://play.google.com/store/apps/details?id=com.dengnekir.sifrelerim&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
-
-                
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-			
-				                          <!-- Proje 2 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/satirarasi.jpg" class="card-img-top" alt="Ne Yesek" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Satır Arası</h5>
-                    <p class="card-text">🎯 Neden Satır Arası?
-Çünkü bazen sadece yazmak istersin.
-Çünkü herkesin bir hikâyesi vardır.
-Ve bazen o hikâye… satır aralarında gizlidir.</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://play.google.com/store/apps/details?id=com.dengnekir.alintilar&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
-
-                
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-			
-			
-							                          <!-- Proje 3 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/neyesek.jpg" class="card-img-top" alt="Ne Yesek" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Ne Yesek</h5>
-                    <p class="card-text">Ne yesek uygulaması ile  yemek paylaşabilir, mesajlaşabilir, ve takipleşebilirsiniz.</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://play.google.com/store/apps/details?id=com.dengnekir.onlyfood&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
-
-                
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-			
-			              <!-- Proje 4 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/github.png" class="card-img-top" alt="Github Projelerim" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Github Projelerim</h5>
-                    <p class="card-text">Daha fazla projelerim için GitHub sayfama göz atın</p>
-                    <div class="mt-auto d-flex justify-content-between">
-                      <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark">Projeleri Gör</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-			
-		            <!-- Proje 5 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/tesisathanem.png" class="card-img-top" alt="İşletme Tanıtım Sitesi" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Tesisathanem</h5>
-                    <p class="card-text">React ve TypeSript  kullanılarak hazırlanan kişisel blog ve şirket tanıtım sitesi</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://dengnekir.com/tesisat/" target="_blank" class="btn btn-outline-dark">Projeyi Gör</a>
-                      <a href="https://github.com/dengnekir/tesisathanem" target="_blank" class="github-link">
-                        <i class="fab fa-github fa-3x"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-    
-
-              <!-- Proje 6 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/meydantantuni.png" class="card-img-top" alt="İşletme Tanıtım Sitesi" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Meydan Tantuni</h5>
-                    <p class="card-text">HTML - CSS ve Bootstrap kullanılarak hazırlanan küçük bir işletmenin tanıtım sitesi</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://dengnekir.github.io/Meydan-Tantuni/" target="_blank" class="btn btn-outline-dark">Projeyi Gör</a>
-                      <a href="https://github.com/dengnekir/Meydan-Tantuni" target="_blank" class="github-link">
-                        <i class="fab fa-github fa-3x"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-    
-			               <!-- Proje 7 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/digitalgunluk.jpg" class="card-img-top" alt="Dijital Psikoloğum" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Dijital Psikoloğum</h5>
-                    <p class="card-text">Gemini api kullanılarak modlara göre kişiye psikolog , psikiyatrist, motivasyon koçu, gelecek planlamacısı gibi hocalara dönüşüp cevap veren bir yapay zeka asistanı.</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://github.com/dengnekir/digitalgunlukk" download class="btn btn-outline-dark">Projeyi Gör</a>
-
-                
-                      </a>
-					  
-                      <a href="https://github.com/dengnekir/digitalgunlukk" target="_blank" class="github-link">
-                        <i class="fab fa-github fa-3x"></i>
-                      </a>
-                   
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Proje 8 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/vistopia.jpg" class="card-img-top" alt="Vistopia" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Vistopia</h5>
-                    <p class="card-text">Flutter ile hazırlanan sosyal medya projem. Reels, resim ve yazı atılabilen, mesaj gönderilebilen kapsamlı bir platform.</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://github.com/dengnekir/vistopianew" download class="btn btn-outline-dark">Projeyi Gör</a>
-
-                
-                      </a>
-					  <a href="https://github.com/dengnekir/vistopianew" target="_blank" class="github-link">
-                        <i class="fab fa-github fa-3x"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-                            <!-- Proje 9 -->
-              <div class="swiper-slide proje-card">
-                <div class="card h-100">
-                  <div class="card-img-container" style="height: 200px; overflow: hidden;">
-                    <img src="img/homepage/crypto.jpg" class="card-img-top" alt="cryptotrade" style="width: 100%; height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold">Crypto Trade</h5>
-                    <p class="card-text">Yapay zeka ile kripto analizi yapan ve al sat gibi tercihlerle kullanıcıya yardımcı olan ai coin asistan.</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center">
-                      <a href="https://github.com/dengnekir/cryptotrade" download class="btn btn-outline-dark">Projeyi Gör</a>
-
-                
-                      </a>
-					  <a href="https://github.com/dengnekir/cryptotrade" target="_blank" class="github-link">
-                        <i class="fab fa-github fa-3x"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-
-              
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          
-          <!-- Swiper için stil ve kod -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              new Swiper(".projectSwiper", {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                pagination: {
-                  el: ".swiper-pagination",
-                  clickable: true,
-                },
-                breakpoints: {
-                  640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                  },
-                  992: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                  },
-                  1200: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                  },
-                },
-              });
-            });
-          </script>
-        </div>
-      </section>
-
-
-      <!-- PDF Bölümü -->
-      <section class="pdf-section py-5 bg-white">
-        <div class="container">
-          <div class="text-center mb-5 reveal">
-            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">PDF Dokümanlarım</h2>
-            <p class="lead text-muted">Yazılım,fotoğrafçılık ve diğer konularda bilgi alabileceğiniz dökümanlarım.</p>
-          </div>
-
-          <!-- Swiper Container -->
-          <div class="swiper pdfSwiper">
-            <div class="swiper-wrapper">
-
-              <!-- PDF 1 -->
-              <div class="swiper-slide pdf-card">
-                <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
-                  <div class="pdf-icon mb-3">
-                    <i class="fas fa-file-pdf fa-5x" style="color: #d32f2f;"></i>
-                  </div>
-                      <h5 class="card-title fw-bold">Başlıklarla Orta Seviye Flutter</h5>
-                  <p class="card-text text-muted"> Flutter hakkında bilinmesi gerek Mid seviyesi bilgiler</p>
-                  <div class="d-flex justify-content-center gap-3 mt-3">
-                    <a href="docs/pdf1.pdf" target="_blank" class="btn btn-outline-dark">Görüntüle</a>
-                    <a href="docs/pdf1.pdf" download class="btn btn-outline-dark">İndir</a>
-                  </div>
-                </div>
-              </div>
-			         <!-- dwg -->
-              <div class="swiper-slide pdf-card wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
-                  <div class="book-icon mb-3">
-    <i class="fas fa-pen-ruler fa-5x" style="color: #d32f2f;"></i>
-</div>
-                      <h5 class="card-title fw-bold">Lüx Konak - Çiftlik AutoCad</h5>
-                  <p class="card-text text-muted">AutoCad ile evin ve ahırın genel elektrik şeması çizimi, iç dizaynı</p>
-                  <div class="d-flex justify-content-center gap-3 mt-4">
-                    
-                    <a href="docs/konak.dwg" download class="btn btn-outline-dark">İndir</a>
-                  </div>
-                </div>
-              </div>
-        
-
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-          <!-- Swiper Script -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              new Swiper(".pdfSwiper", {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                pagination: {
-                  el: ".swiper-pagination",
-                  clickable: true,
-                },
-                breakpoints: {
-                  640: { slidesPerView: 2, spaceBetween: 20 },
-                  992: { slidesPerView: 3, spaceBetween: 30 },
-                  1200: { slidesPerView: 4, spaceBetween: 30 },
-                },
-              });
-            });
-          </script>
-        </div>
-      </section>
-
-
-      <!-- Yetkinlikler Bölümü -->
+      <!-- Uzmanlık Alanları & Portfolyo Birleşik Bölüm -->
       <section class="skills-section py-5 bg-light" style="position:relative;overflow:hidden;">
         <!-- Floating icons -->
         <div class="floating-icon fi-1" style="top:20%;right:8%;"><i class="fas fa-laptop-code"></i></div>
         <div class="floating-icon fi-3" style="bottom:25%;left:5%;"><i class="fas fa-plug"></i></div>
         <div class="floating-icon fi-5" style="top:60%;left:45%;"><i class="fas fa-tree"></i></div>
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div class="text-center mb-5 reveal">
-                <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Uzmanlık Alanları</h2>
-                <p class="lead text-muted">Yazılım ve Diğer Konularda Bilgi Düzeyim</p>
-              </div>
+          <!-- Section Başlık -->
+          <div class="text-center mb-5 reveal">
+            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Uzmanlık & Portfolyo</h2>
+            <p class="lead text-muted">Bilgi düzeyim, projelerim ve dokümanlarım</p>
+          </div>
 
+          <div class="row">
+            <!-- SOL: Uzmanlık Alanları -->
+            <div class="col-lg-8 mb-4 mb-lg-0">
               <div class="skills-container">
                 <!-- CAPCUT -->
                 <div class="skill-item mb-4">
@@ -1192,7 +982,7 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
                   </div>
                 </div>
-                      <!-- AutoCad -->
+                <!-- AutoCad -->
                 <div class="skill-item mb-4">
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h5 class="mb-0" style="color: #333;">AUTOCAD</h5>
@@ -1202,16 +992,16 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
                   </div>
                 </div>
-      <!-- Firebase -->
-      <div class="skill-item mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h5 class="mb-0" style="color: #333;">FİREBASE</h5>
-          <span class="fs-6">70%</span>
-        </div>
-        <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
-          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
-        </div>
-      </div>
+                <!-- Firebase -->
+                <div class="skill-item mb-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0" style="color: #333;">FİREBASE</h5>
+                    <span class="fs-6">70%</span>
+                  </div>
+                  <div class="progress" style="height: 10px; background-color: rgba(23, 90, 46, 0.1); border-radius: 8px;">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
+                  </div>
+                </div>
                 <!-- CANVA -->
                 <div class="skill-item mb-4">
                   <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1222,7 +1012,6 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
                   </div>
                 </div>
-
                 <!-- Flutter -->
                 <div class="skill-item mb-4">
                   <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1233,7 +1022,6 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
                   </div>
                 </div>
-
                 <!-- HTML -->
                 <div class="skill-item mb-4">
                   <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1244,7 +1032,6 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
                   </div>
                 </div>
-
                 <!-- CSS -->
                 <div class="skill-item mb-4">
                   <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1255,7 +1042,6 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                     <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="background: linear-gradient(90deg, #175a2e, #99c1b9);"></div>
                   </div>
                 </div>
-
                 <!-- JavaScript -->
                 <div class="skill-item">
                   <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1268,27 +1054,579 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                 </div>
               </div>
             </div>
+
+            <!-- SAĞ: Portfolyo Toggle Kartları -->
+            <div class="col-lg-4">
+              <div class="d-flex flex-column gap-3">
+                <!-- Projelerim Toggle -->
+                <div class="portfolio-toggle-card toggle-projects" id="toggleProjects" onclick="togglePortfolioPanel('projects')">
+                  <!-- Floating arka plan ikonları -->
+                  <i class="fas fa-laptop-code toggle-bg-icon tbi-1"></i>
+                  <i class="fas fa-mobile-alt toggle-bg-icon tbi-2"></i>
+                  <i class="fas fa-code toggle-bg-icon tbi-3"></i>
+                  <i class="fas fa-robot toggle-bg-icon tbi-4"></i>
+                  <div class="toggle-card-glow"></div>
+                  <div class="toggle-card-content">
+                    <div class="toggle-icon-wrap">
+                      <i class="fas fa-code"></i>
+                      <span class="toggle-icon-badge">9</span>
+                    </div>
+                    <h3 class="toggle-title">Projelerim</h3>
+                    <p class="toggle-desc">Mobil, web ve AI projeleri</p>
+                    <div class="toggle-arrow">
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PDF Dokümanlarım Toggle -->
+                <div class="portfolio-toggle-card toggle-docs" id="toggleDocs" onclick="togglePortfolioPanel('docs')">
+                  <!-- Floating arka plan ikonları -->
+                  <i class="fas fa-screwdriver toggle-bg-icon tbi-1"></i>
+                  <i class="fas fa-wrench toggle-bg-icon tbi-2"></i>
+                  <i class="fas fa-hammer toggle-bg-icon tbi-3"></i>
+                  <i class="fas fa-plug toggle-bg-icon tbi-4"></i>
+                  <div class="toggle-card-glow"></div>
+                  <div class="toggle-card-content">
+                    <div class="toggle-icon-wrap">
+                      <i class="fas fa-file-alt"></i>
+                      <span class="toggle-icon-badge">2</span>
+                    </div>
+                    <h3 class="toggle-title">Dokümanlarım</h3>
+                    <p class="toggle-desc">PDF ve AutoCad dosyaları</p>
+                    <div class="toggle-arrow">
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Açılır Paneller (Full-width, row'un altında) -->
+          <!-- Projeler Panel -->
+          <div class="portfolio-panel" id="panelProjects">
+            <div class="panel-inner">
+              <div class="swiper projectSwiper">
+                <div class="swiper-wrapper">
+
+                  <!-- Proje 1 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/sifredefteri.png" class="card-img-top" alt="Şifrelerim" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Şifre Defteri</h5>
+                        <p class="card-text">Şifreleri kaybetmeden saklamanın en kolay ve düzenli yolu.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://play.google.com/store/apps/details?id=com.dengnekir.sifrelerim&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 2 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/satirarasi.jpg" class="card-img-top" alt="Satır Arası" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Satır Arası</h5>
+                        <p class="card-text">🎯 Neden Satır Arası? Çünkü bazen sadece yazmak istersin.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://play.google.com/store/apps/details?id=com.dengnekir.alintilar&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 3 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/neyesek.jpg" class="card-img-top" alt="Ne Yesek" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Ne Yesek</h5>
+                        <p class="card-text">Ne yesek uygulaması ile yemek paylaşabilir, mesajlaşabilir, ve takipleşebilirsiniz.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://play.google.com/store/apps/details?id=com.dengnekir.onlyfood&hl=tr" download class="btn btn-outline-dark">Google Play İle İndir</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 4 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/github.png" class="card-img-top" alt="Github Projelerim" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Github Projelerim</h5>
+                        <p class="card-text">Daha fazla projelerim için GitHub sayfama göz atın</p>
+                        <div class="mt-auto d-flex justify-content-between">
+                          <a href="https://github.com/dengnekir" target="_blank" class="btn btn-outline-dark">Projeleri Gör</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 5 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/tesisathanem.png" class="card-img-top" alt="Tesisathanem" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Tesisathanem</h5>
+                        <p class="card-text">React ve TypeScript kullanılarak hazırlanan kişisel blog ve şirket tanıtım sitesi</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://dengnekir.com/tesisat/" target="_blank" class="btn btn-outline-dark">Projeyi Gör</a>
+                          <a href="https://github.com/dengnekir/tesisathanem" target="_blank" class="github-link">
+                            <i class="fab fa-github fa-3x"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 6 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/meydantantuni.png" class="card-img-top" alt="Meydan Tantuni" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Meydan Tantuni</h5>
+                        <p class="card-text">HTML - CSS ve Bootstrap kullanılarak hazırlanan küçük bir işletmenin tanıtım sitesi</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://dengnekir.github.io/Meydan-Tantuni/" target="_blank" class="btn btn-outline-dark">Projeyi Gör</a>
+                          <a href="https://github.com/dengnekir/Meydan-Tantuni" target="_blank" class="github-link">
+                            <i class="fab fa-github fa-3x"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 7 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/digitalgunluk.jpg" class="card-img-top" alt="Dijital Psikoloğum" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Dijital Psikoloğum</h5>
+                        <p class="card-text">Gemini api kullanılarak modlara göre kişiye psikolog, motivasyon koçu gibi rollere dönüşüp cevap veren AI asistanı.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://github.com/dengnekir/digitalgunlukk" download class="btn btn-outline-dark">Projeyi Gör</a>
+                          <a href="https://github.com/dengnekir/digitalgunlukk" target="_blank" class="github-link">
+                            <i class="fab fa-github fa-3x"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 8 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/vistopia.jpg" class="card-img-top" alt="Vistopia" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Vistopia</h5>
+                        <p class="card-text">Flutter ile hazırlanan sosyal medya projem. Reels, resim ve yazı atılabilen kapsamlı bir platform.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://github.com/dengnekir/vistopianew" download class="btn btn-outline-dark">Projeyi Gör</a>
+                          <a href="https://github.com/dengnekir/vistopianew" target="_blank" class="github-link">
+                            <i class="fab fa-github fa-3x"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Proje 9 -->
+                  <div class="swiper-slide proje-card">
+                    <div class="card h-100">
+                      <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                        <img src="img/homepage/crypto.jpg" class="card-img-top" alt="Crypto Trade" style="width: 100%; height: 100%; object-fit: cover;">
+                      </div>
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Crypto Trade</h5>
+                        <p class="card-text">Yapay zeka ile kripto analizi yapan ve al sat tercihlerle kullanıcıya yardımcı olan AI coin asistan.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <a href="https://github.com/dengnekir/cryptotrade" download class="btn btn-outline-dark">Projeyi Gör</a>
+                          <a href="https://github.com/dengnekir/cryptotrade" target="_blank" class="github-link">
+                            <i class="fab fa-github fa-3x"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="swiper-pagination swiper-pagination-projects"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dokümanlar Panel -->
+          <div class="portfolio-panel" id="panelDocs">
+            <div class="panel-inner">
+              <div class="swiper pdfSwiper">
+                <div class="swiper-wrapper">
+
+                  <!-- PDF 1 -->
+                  <div class="swiper-slide pdf-card">
+                    <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
+                      <div class="pdf-icon mb-3">
+                        <i class="fas fa-file-pdf fa-5x" style="color: #d32f2f;"></i>
+                      </div>
+                      <h5 class="card-title fw-bold">Başlıklarla Orta Seviye Flutter</h5>
+                      <p class="card-text text-muted">Flutter hakkında bilinmesi gerek Mid seviyesi bilgiler</p>
+                      <div class="d-flex justify-content-center gap-3 mt-3">
+                        <a href="docs/pdf1.pdf" target="_blank" class="btn btn-outline-dark">Görüntüle</a>
+                        <a href="docs/pdf1.pdf" download class="btn btn-outline-dark">İndir</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- dwg -->
+                  <div class="swiper-slide pdf-card">
+                    <div class="card h-100 text-center p-4" style="border: 2px solid #175a2e; border-radius: 15px;">
+                      <div class="book-icon mb-3">
+                        <i class="fas fa-pen-ruler fa-5x" style="color: #d32f2f;"></i>
+                      </div>
+                      <h5 class="card-title fw-bold">Lüx Konak - Çiftlik AutoCad</h5>
+                      <p class="card-text text-muted">AutoCad ile evin ve ahırın genel elektrik şeması çizimi, iç dizaynı</p>
+                      <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a href="docs/konak.dwg" download class="btn btn-outline-dark">İndir</a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="swiper-pagination swiper-pagination-docs"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Portfolio Toggle + Birleşik Stiller -->
+        <style>
+          /* ===== TOGGLE KARTLARI ===== */
+          .portfolio-toggle-card {
+            position: relative;
+            border-radius: 20px;
+            padding: 28px 24px;
+            cursor: pointer;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.25);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            user-select: none;
+          }
+          /* Projelerim kartı - yazılım temalı gradient */
+          .toggle-projects {
+            background: linear-gradient(135deg, #1a3a2a 0%, #1e5c3a 50%, #2d8a4e 100%);
+          }
+          /* Dokümanlarım kartı - elektrik temalı gradient */
+          .toggle-docs {
+            background: linear-gradient(135deg, #1a2a3a 0%, #1e3c5c 50%, #2d5a8a 100%);
+          }
+          .portfolio-toggle-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+            border-color: rgba(255,255,255,0.4);
+          }
+          .portfolio-toggle-card.active {
+            border-color: rgba(255,255,255,0.5);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+          }
+          .toggle-projects.active {
+            background: linear-gradient(135deg, #0d2a1a 0%, #175a2e 50%, #3ba55c 100%);
+          }
+          .toggle-docs.active {
+            background: linear-gradient(135deg, #0d1a2a 0%, #1e3c5c 50%, #4a90d9 100%);
+          }
+          .portfolio-toggle-card.active:hover {
+            transform: translateY(-3px) scale(1.01);
+          }
+
+          /* Floating arka plan ikonları */
+          .toggle-bg-icon {
+            position: absolute;
+            color: rgba(255,255,255,0.18);
+            pointer-events: none;
+            z-index: 0;
+            transition: all 0.5s ease;
+          }
+          .portfolio-toggle-card:hover .toggle-bg-icon {
+            color: rgba(255,255,255,0.28);
+          }
+          .tbi-1 { top: 10%; right: 8%; font-size: 2.2rem; animation: floatBgIcon1 6s ease-in-out infinite; }
+          .tbi-2 { bottom: 12%; left: 6%; font-size: 1.8rem; animation: floatBgIcon2 8s ease-in-out infinite; }
+          .tbi-3 { top: 50%; right: 25%; font-size: 1.5rem; animation: floatBgIcon1 7s ease-in-out infinite 1s; }
+          .tbi-4 { bottom: 8%; right: 12%; font-size: 2rem; animation: floatBgIcon2 9s ease-in-out infinite 0.5s; }
+          @keyframes floatBgIcon1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-8px, 6px) rotate(10deg); }
+          }
+          @keyframes floatBgIcon2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(6px, -8px) rotate(-8deg); }
+          }
+          .toggle-card-glow {
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(23,90,46,0.06) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+          }
+          .portfolio-toggle-card:hover .toggle-card-glow { opacity: 1; }
+          .toggle-card-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+          }
+          .toggle-title, .toggle-desc {
+            color: rgba(255,255,255,0.95) !important;
+          }
+          .toggle-desc {
+            color: rgba(255,255,255,0.65) !important;
+          }
+          .portfolio-toggle-card.active .toggle-title {
+            color: #fff !important;
+          }
+          .toggle-icon-wrap {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px; height: 64px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #175a2e, #2d8a4e);
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+          }
+          .portfolio-toggle-card:hover .toggle-icon-wrap {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+          }
+          .toggle-projects .toggle-icon-wrap {
+            background: linear-gradient(135deg, #3ba55c, #6ddb8f);
+          }
+          .toggle-docs .toggle-icon-wrap {
+            background: linear-gradient(135deg, #4a90d9, #6bb5ff);
+          }
+          .portfolio-toggle-card.active .toggle-icon-wrap {
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            color: #175a2e;
+          }
+          .toggle-icon-badge {
+            position: absolute;
+            top: -6px; right: -6px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(238,90,36,0.4);
+            animation: badgePulse 2s ease-in-out infinite;
+          }
+          @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+          }
+          .toggle-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
+          }
+          .portfolio-toggle-card.active .toggle-title { color: #175a2e; }
+          .toggle-desc {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+            line-height: 1.4;
+          }
+          .toggle-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            font-size: 0.8rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+          }
+          .portfolio-toggle-card:hover .toggle-arrow {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(3px);
+          }
+          .portfolio-toggle-card.active .toggle-arrow {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            transform: rotate(180deg);
+          }
+
+          /* ===== AÇILIR PANEL ===== */
+          .portfolio-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
+                        opacity 0.5s ease,
+                        margin 0.5s ease;
+            opacity: 0;
+            margin-top: 0;
+          }
+          .portfolio-panel.open {
+            max-height: 800px;
+            opacity: 1;
+            margin-top: 28px;
+            overflow: visible;
+          }
+          .panel-inner {
+            padding: 24px 0;
+            transform: translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.15s;
+          }
+          .portfolio-panel.open .panel-inner {
+            transform: translateY(0);
+          }
+
+          /* ===== MOBİL ===== */
+          @media (max-width: 992px) {
+            .portfolio-toggle-card {
+              padding: 22px 18px;
+            }
+            .toggle-icon-wrap {
+              width: 52px; height: 52px;
+              font-size: 1.3rem;
+              border-radius: 14px;
+            }
+            .toggle-title { font-size: 1.05rem; }
+            .toggle-desc { font-size: 0.75rem; }
+          }
+          @media (max-width: 480px) {
+            .toggle-icon-wrap {
+              width: 44px; height: 44px;
+              font-size: 1.1rem;
+            }
+            .toggle-title { font-size: 0.95rem; }
+            .portfolio-panel.open { max-height: 600px; }
+          }
+        </style>
+
+        <!-- Portfolio Toggle + Swiper Script -->
+        <script>
+          let projectSwiperInstance = null;
+          let pdfSwiperInstance = null;
+
+          function initProjectSwiper() {
+            if (projectSwiperInstance) { projectSwiperInstance.update(); return; }
+            projectSwiperInstance = new Swiper(".projectSwiper", {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              pagination: { el: ".swiper-pagination-projects", clickable: true },
+              breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                992: { slidesPerView: 3, spaceBetween: 30 },
+                1200: { slidesPerView: 4, spaceBetween: 30 },
+              },
+            });
+          }
+
+          function initPdfSwiper() {
+            if (pdfSwiperInstance) { pdfSwiperInstance.update(); return; }
+            pdfSwiperInstance = new Swiper(".pdfSwiper", {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              pagination: { el: ".swiper-pagination-docs", clickable: true },
+              breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                992: { slidesPerView: 3, spaceBetween: 30 },
+                1200: { slidesPerView: 4, spaceBetween: 30 },
+              },
+            });
+          }
+
+          function togglePortfolioPanel(type) {
+            const projectPanel = document.getElementById('panelProjects');
+            const docsPanel = document.getElementById('panelDocs');
+            const toggleProjects = document.getElementById('toggleProjects');
+            const toggleDocs = document.getElementById('toggleDocs');
+
+            if (type === 'projects') {
+              const isOpen = projectPanel.classList.contains('open');
+              docsPanel.classList.remove('open');
+              toggleDocs.classList.remove('active');
+              if (isOpen) {
+                projectPanel.classList.remove('open');
+                toggleProjects.classList.remove('active');
+              } else {
+                projectPanel.classList.add('open');
+                toggleProjects.classList.add('active');
+                setTimeout(() => { initProjectSwiper(); }, 400);
+              }
+            } else {
+              const isOpen = docsPanel.classList.contains('open');
+              projectPanel.classList.remove('open');
+              toggleProjects.classList.remove('active');
+              if (isOpen) {
+                docsPanel.classList.remove('open');
+                toggleDocs.classList.remove('active');
+              } else {
+                docsPanel.classList.add('open');
+                toggleDocs.classList.add('active');
+                setTimeout(() => { initPdfSwiper(); }, 400);
+              }
+            }
+          }
+        </script>
       </section>
 
-      <!-- İş Deneyimi Bölümü -->
+      <!-- İş Deneyimi & Kullandığım Yazılımlar Birleşik Bölüm -->
       <section class="experience-section py-5" style="position:relative;overflow:hidden;">
         <div class="floating-icon fi-2" style="top:15%;right:10%;"><i class="fas fa-briefcase"></i></div>
         <div class="floating-icon fi-4" style="bottom:20%;left:8%;"><i class="fas fa-hard-hat"></i></div>
+        <div class="floating-icon fi-1" style="top:18%;right:10%;"><i class="fas fa-sun"></i></div>
         <div class="container" style="position:relative;z-index:1;">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div class="text-center mb-5 reveal">
-                <h2 class="display-4 fw-bold mb-4">İş Deneyimi</h2>
-              </div>
+          <!-- Ortak Başlık -->
+          <div class="text-center mb-5 reveal">
+            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Deneyim & Araçlar</h2>
+            <p class="lead text-muted">İş deneyimim ve kullandığım yazılımlar</p>
+          </div>
 
+          <div class="row">
+            <!-- SOL: İş Deneyimi -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <h4 class="fw-bold mb-4" style="color: #175a2e;"><i class="fas fa-briefcase me-2"></i>İş Deneyimi</h4>
               <div class="exp-grid">
-                <!-- Yeni İş -->
+                <!-- Akt Elektrik -->
                 <div class="exp-card">
                   <div class="exp-icon"><i class="fas fa-bolt"></i></div>
                   <div class="exp-body">
-                    <span class="exp-date">2026 -</span>
+                    <span class="exp-date">2026 - 2026</span>
                     <h5 class="fw-bold">Akt Elektrik Mek. San. ve Tic. A.Ş</h5>
                     <p class="exp-role">Elektrik Teknisyeni</p>
                     <p class="exp-desc">Elektrikçi</p>
@@ -1340,6 +1678,103 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
                 </div>
               </div>
             </div>
+
+            <!-- SAĞ: Kullandığım Yazılımlar -->
+            <div class="col-lg-6">
+              <h4 class="fw-bold mb-4" style="color: #175a2e;"><i class="fas fa-tools me-2"></i>Kullandığım Yazılımlar</h4>
+              <div class="row justify-content-center align-items-center text-center">
+                <!-- Gemini -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://www.google.com/gemini" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/gemini.png" class="img-fluid w-50 hover-effect mb-2" alt="Gemini">
+                      <h6 class="text-dark fw-bold">Gemini</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- NotebookLM -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/notebooklm.png" class="img-fluid w-50 hover-effect mb-2" alt="NotebookLM">
+                      <h6 class="text-dark fw-bold">NotebookLM</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- ChatGPT -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://chat.openai.com/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/chat-gbt.png" class="img-fluid w-50 hover-effect mb-2" alt="ChatGPT">
+                      <h6 class="text-dark fw-bold">ChatGPT</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Canva -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://www.canva.com/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/canva.png" class="img-fluid w-50 hover-effect mb-2" alt="Canva">
+                      <h6 class="text-dark fw-bold">Canva</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Elevanlabs -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://elevenlabs.io/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/elevanlabs.png" class="img-fluid w-50 hover-effect mb-2" alt="Elevanlabs">
+                      <h6 class="text-dark fw-bold">Elevanlabs</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Cursor IDE -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://www.cursor.com/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/cursoride.png" class="img-fluid w-50 hover-effect mb-2" alt="Cursor IDE">
+                      <h6 class="text-dark fw-bold">Cursor IDE</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Leonardo.ai -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://leonardo.ai/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/leonardo.jpg" class="img-fluid w-50 hover-effect mb-2" alt="Leonardo.ai">
+                      <h6 class="text-dark fw-bold">Leonardo.ai</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Claude AI -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://claude.ai/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/claude.png" class="img-fluid w-50 hover-effect mb-2" alt="Claude AI">
+                      <h6 class="text-dark fw-bold">Claude AI</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Gamma -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://gamma.app/" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/gamma.png" class="img-fluid w-50 hover-effect mb-2" alt="Gamma">
+                      <h6 class="text-dark fw-bold">Gamma</h6>
+                    </div>
+                  </a>
+                </div>
+                <!-- Bing Image Creator -->
+                <div class="col-4 col-md-4 col-lg-4 mb-3">
+                  <a href="https://www.bing.com/create" target="_blank" class="text-decoration-none">
+                    <div class="tool-item">
+                      <img src="img/homepage/bing.png" class="img-fluid w-50 hover-effect mb-2" alt="Bing Image Creator">
+                      <h6 class="text-dark fw-bold">Bing Image</h6>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1347,15 +1782,15 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
           .exp-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
           }
           .exp-card {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
+            gap: 14px;
             background: white;
-            border-radius: 16px;
-            padding: 20px 24px;
+            border-radius: 14px;
+            padding: 16px 20px;
             border-left: 4px solid transparent;
             border-image: linear-gradient(to bottom, #175a2e, #99c1b9) 1;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
@@ -1366,15 +1801,15 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
             box-shadow: 0 10px 28px rgba(0,0,0,0.08);
           }
           .exp-icon {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
             background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #175a2e;
           }
           .exp-body {
@@ -1382,224 +1817,83 @@ Ve bazen o hikâye… satır aralarında gizlidir.</p>
           }
           .exp-date {
             display: inline-block;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: #175a2e;
             background: rgba(23,90,46,0.08);
-            padding: 2px 10px;
+            padding: 2px 8px;
             border-radius: 50px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
           }
           .exp-body h5 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 2px;
             color: #1a1a1a;
           }
           .exp-role {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-style: italic;
             color: #666;
             margin-bottom: 2px;
           }
           .exp-desc {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #888;
             margin-bottom: 0;
           }
+          .tool-item {
+            padding: 14px 8px;
+            border-radius: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          .tool-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+          }
+          .tool-item img {
+            max-width: 40px !important;
+            width: auto !important;
+          }
+          .tool-item h6 {
+            color: #333;
+            margin-top: 4px;
+            font-size: 0.7rem;
+            transition: color 0.3s ease;
+          }
+          .tool-item:hover h6 {
+            color: #175a2e;
+          }
+          .hover-effect {
+            transition: transform 0.3s ease;
+          }
+          .hover-effect:hover {
+            transform: scale(1.08);
+          }
+          @media (max-width: 768px) {
+            .exp-card { padding: 12px 14px; gap: 10px; }
+            .exp-icon { width: 34px; height: 34px; min-width: 34px; font-size: 0.85rem; }
+            .exp-body h5 { font-size: 0.85rem; }
+            .tool-item { padding: 10px 6px; height: 85px; }
+            .tool-item img { max-width: 32px !important; }
+            .tool-item h6 { font-size: 0.6rem; }
+          }
           @media (max-width: 480px) {
-            .exp-card {
-              padding: 14px 16px;
-              gap: 12px;
-            }
-            .exp-icon {
-              width: 36px;
-              height: 36px;
-              min-width: 36px;
-              font-size: 0.9rem;
-            }
-            .exp-body h5 { font-size: 0.9rem; }
+            .exp-card { padding: 10px 12px; gap: 8px; }
+            .exp-icon { width: 30px; height: 30px; min-width: 30px; font-size: 0.8rem; }
+            .exp-body h5 { font-size: 0.8rem; }
+            .tool-item { height: 75px; }
+            .tool-item img { max-width: 26px !important; }
+            .tool-item h6 { font-size: 0.55rem; }
           }
         </style>
-      </section>
-
-      <!-- Kullandığım Yazılımlar Bölümü -->
-      <section class="tools-section py-5 bg-light" style="position:relative;overflow:hidden;">
-        <!-- Floating icons -->
-        <div class="floating-icon fi-1" style="top:18%;right:10%;"><i class="fas fa-sun"></i></div>
-        <div class="floating-icon fi-4" style="bottom:20%;left:8%;"><i class="fas fa-wrench"></i></div>
-        <div class="floating-icon fi-2" style="top:55%;left:45%;"><i class="fas fa-camera-retro"></i></div>
-        <div class="container">
-          <div class="text-center mb-5 reveal">
-            <h2 class="display-4 fw-bold mb-4" style="color: #175a2e;">Kullandığım Yazılımlar</h2>
-            <p class="lead text-muted">Geliştirme ve Tasarım Süreçlerimde Kullandığım Araçlar</p>
-          </div>
-
-          <div class="row justify-content-center align-items-center text-center">
-             <!-- Gemini -->
-             <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://www.google.com/gemini" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/gemini.png" class="img-fluid w-50 hover-effect mb-3" alt="Gemini">
-                  <h6 class="text-dark fw-bold">Gemini</h6>
-                </div>
-              </a>
-            </div>
-
-            <!-- NotebookLM -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/notebooklm.png" class="img-fluid w-50 hover-effect mb-3" alt="NotebookLM">
-                  <h6 class="text-dark fw-bold">NotebookLM</h6>
-                </div>
-              </a>
-            </div>
-
-            <!-- ChatGPT -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://chat.openai.com/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/chat-gbt.png" class="img-fluid w-50 hover-effect mb-3" alt="ChatGPT">
-                  <h6 class="text-dark fw-bold">ChatGPT</h6>
-                </div>
-              </a>
-            </div>
-
-            <!-- Canva -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://www.canva.com/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/canva.png" class="img-fluid w-50 hover-effect mb-3" alt="Canva">
-                  <h6 class="text-dark fw-bold">Canva</h6>
-                </div>
-              </a>
-            </div>
-
-                 <!-- Elevanlabs -->
-             <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://elevenlabs.io/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/elevanlabs.png" class="img-fluid w-50 hover-effect mb-3" alt="Elevanlabs">
-                  <h6 class="text-dark fw-bold">Elevanlabs</h6>
-                </div>
-              </a>
-            </div>
-            <!-- Cursor IDE -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://www.cursor.com/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/cursoride.png" class="img-fluid w-50 hover-effect mb-3" alt="Cursor IDE">
-                  <h6 class="text-dark fw-bold">Cursor IDE</h6>
-                </div>
-              </a>
-            </div>
-
-            <!-- Leonardo.ai -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://leonardo.ai/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/leonardo.jpg" class="img-fluid w-50 hover-effect mb-3" alt="Leonardo.ai">
-                  <h6 class="text-dark fw-bold">Leonardo.ai</h6>
-                </div>
-              </a>
-            </div>
-
-            <!-- Claude AI -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://claude.ai/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/claude.png" class=" img-fluid w-50 hover-effect mb-3" alt="Claude AI">
-                  <h6 class="text-dark fw-bold">Claude AI</h6>
-                </div>
-              </a>
-            </div>
-
-           
-            <!-- Gamma -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://gamma.app/" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/gamma.png" class="img-fluid w-50 hover-effect mb-3" alt="Gamma">
-                  <h6 class="text-dark fw-bold">Gamma</h6>
-                </div>
-              </a>
-            </div>
-
-            <!-- Bing Image Creator -->
-            <div class="col-6 col-md-3 col-lg-2 mb-4">
-              <a href="https://www.bing.com/create" target="_blank" class="text-decoration-none">
-                <div class="tool-item">
-                  <img src="img/homepage/bing.png" class="img-fluid w-50 hover-effect mb-3" alt="Bing Image Creator">
-                  <h6 class="text-dark fw-bold">Bing Image Creator</h6>
-                </div>
-              </a>
-            </div>
-
-            
-          </div>
-
-          <style>
-            .tool-item {
-              padding: 16px 10px;
-              border-radius: 14px;
-              transition: transform 0.3s ease, box-shadow 0.3s ease;
-              background: white;
-              box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-              border: 1px solid rgba(0,0,0,0.04);
-              height: 120px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-            }
-            .tool-item:hover {
-              transform: translateY(-5px);
-              box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-            }
-            .tool-item img {
-              max-width: 45px !important;
-              width: auto !important;
-            }
-            .tool-item h6 {
-              color: #333;
-              margin-top: 4px;
-              font-size: 0.75rem;
-              transition: color 0.3s ease;
-            }
-            .tool-item:hover h6 {
-              color: #175a2e;
-            }
-            .hover-effect {
-              transition: transform 0.3s ease;
-            }
-            .hover-effect:hover {
-              transform: scale(1.08);
-            }
-            @media (max-width: 768px) {
-              .tool-item {
-                padding: 12px 8px;
-                border-radius: 12px;
-              }
-              .tool-item img {
-                max-width: 36px !important;
-              }
-              .tool-item h6 {
-                font-size: 0.65rem;
-              }
-            }
-            @media (max-width: 480px) {
-              .tool-item {
-                padding: 10px 6px;
-              }
-              .tool-item img {
-                max-width: 30px !important;
-              }
-              .tool-item h6 {
-                font-size: 0.6rem;
-              }
-            }
-          </style>
-        </div>
       </section>
 
     </main>
