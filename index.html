@@ -1403,8 +1403,8 @@
                   </div>
                   <h3 class="toggle-title">GitHub Projelerim</h3>
                   <p class="toggle-desc">Açık kaynak kodlu tüm projelerim</p>
-                  <div class="toggle-arrow">
-                    <i class="fas fa-external-link-alt"></i>
+                  <div class="toggle-arrow toggle-arrow-link">
+                    <i class="fas fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -1424,8 +1424,8 @@
                   </div>
                   <h3 class="toggle-title">Google Play Hesabım</h3>
                   <p class="toggle-desc">Yayınladığım mobil uygulamalar</p>
-                  <div class="toggle-arrow">
-                    <i class="fas fa-external-link-alt"></i>
+                  <div class="toggle-arrow toggle-arrow-link">
+                    <i class="fas fa-arrow-right"></i>
                   </div>
                 </div>
               </a>
@@ -1767,6 +1767,11 @@
         .portfolio-toggle-card:hover .toggle-arrow {
           background: rgba(255, 255, 255, 0.25);
           transform: translateY(3px);
+        }
+
+        .portfolio-toggle-card:hover .toggle-arrow-link {
+          background: rgba(255, 255, 255, 0.25);
+          transform: translateX(5px);
         }
 
         .portfolio-toggle-card.active .toggle-arrow {
